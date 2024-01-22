@@ -37,9 +37,15 @@ class OnboardingViewController: UIViewController {
         
         startButton.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        UserDefaults.standard.setValue(Int.random(in: 1...ProfileImage.allCases.count), forKey: "ImageNumber")
+        UserDefaults.standard.setValue("", forKey: "Nickname")
+        UserDefaults.standard.setValue([], forKey: "SearchHistory")
+        UserDefaults.standard.setValue([:], forKey: "Count")
+    }
+
     @objc func startButtonClicked() {
-        let vc =  storyboard?.instantiateViewController(identifier: "ProfileSettingViewController") as! ProfileSettingViewController
+        let vc =  storyboard?.instantiateViewController(identifier: ProfileSettingViewController.identifier) as! ProfileSettingViewController
         navigationController?.pushViewController(vc, animated: true)
     }
 

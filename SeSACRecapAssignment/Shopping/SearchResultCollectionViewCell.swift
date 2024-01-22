@@ -22,7 +22,6 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
   override class func awakeFromNib() {
     super.awakeFromNib()
 
-
   }
 
 

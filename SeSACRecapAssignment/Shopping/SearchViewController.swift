@@ -27,11 +27,12 @@ class SearchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-
-
-
     configureView()
     allDeleteButton.addTarget(self, action: #selector(allDeleteButtonClicked), for: .touchUpInside)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "\(UserDefaults.standard.string(forKey: "Nickname")!)님의 새싹쇼핑"
     }
 
   @objc func allDeleteButtonClicked() {
@@ -43,11 +44,6 @@ class SearchViewController: UIViewController {
 
     searchTableView.reloadData()
   }
-
-
-
-
-
 }
 
 
@@ -84,7 +80,7 @@ extension SearchViewController: UISearchBarDelegate {
       searchTableView.reloadData()
 
 
-      let vc = storyboard?.instantiateViewController(withIdentifier: "SearchResultViewController") as! SearchResultViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
       navigationController?.pushViewController(vc, animated: true)
 
 
@@ -103,19 +99,63 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = searchTableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
+      let cell = searchTableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as! SearchTableViewCell
 
     cell.currentSearchTextLabel.text = searchHistory[indexPath.row]
 
+      cell.xmarkButton.tag = indexPath.row
+
+      cell.xmarkButton.addTarget(self, action: #selector(xmarkButtonClicked), for: .touchUpInside)
+
+
     return cell
-
-
   }
+
+
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        64
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+          UserDefaults.standard.setValue(searchHistory[indexPath.row], forKey: "SearchItem")
+
+
+            let vc = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
+          navigationController?.pushViewController(vc, animated: true)
+
+
+
+        }
+
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    @objc func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            searchHistory.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
 }
 
 
 //내가 만든 기능
 extension SearchViewController {
+    @objc func xmarkButtonClicked(sender: UIButton) {
+        if searchHistory.count == 1 {
+            emptyImageView.isHidden = false
+            emptyLabel.isHidden = false
+            currentSearchLabel.isHidden = true
+            allDeleteButton.isHidden = true
+        }
+        searchHistory.remove(at: sender.tag)
+        searchTableView.reloadData()
+    }
+
   func configureView() {
 
     let backBarButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
@@ -130,7 +170,6 @@ extension SearchViewController {
     navigationController?.navigationBar.barTintColor = UIColor.sesacBackground
 
     navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.sesacText]
-    navigationItem.title = "\(UserDefaults.standard.string(forKey: "Nickname")!)님의 새싹쇼핑"
 
     tabBarController?.tabBar.barTintColor = UIColor.sesacBackground
     tabBarController?.tabBar.tintColor = UIColor.sesacText

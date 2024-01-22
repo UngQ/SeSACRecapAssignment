@@ -29,7 +29,6 @@ enum ButtonTitle: String {
     }
 }
 
-
 class SearchResultViewController: UIViewController {
 
     @IBOutlet var totalLabel: UILabel!
@@ -40,7 +39,8 @@ class SearchResultViewController: UIViewController {
     @IBOutlet var fourthButton: UIButton!
 
     @IBOutlet var searchResultCollectionView: UICollectionView!
-
+    
+    var count: [String: Any] = UserDefaults.standard.dictionary(forKey: "Count") ?? [:]
     var itemList: Shopping = Shopping(lastBuildDate: "", total: 0, start: 0, display: 0, items: [])
     var itemNumber = 1
     var lastPage = 1
@@ -49,13 +49,12 @@ class SearchResultViewController: UIViewController {
 
 
     override func viewWillAppear(_ animated: Bool) {
+        count = UserDefaults.standard.dictionary(forKey: "Count") as? [String: Bool] ?? [:]
         searchResultCollectionView.reloadData()
-        print("??")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
 
 
         configureView()
@@ -136,26 +135,32 @@ class SearchResultViewController: UIViewController {
             switch response.result {
             case .success(let success):
 
-                if self.itemNumber == 1 {
-                    self.itemList = success
-                    self.lastPage = success.total / 30
+                if success.items.count == 0 {
+                    self.totalLabel.text = "검색 결과가 없습니다"
 
-                    print(self.lastPage)
-                    dump(self.itemList)
-                    self.totalLabel.text = "\(self.intNumberFormatter(number: success.total)) 개의 검색 결과"
-
+                    self.searchResultCollectionView.reloadData()
                 } else {
 
-                    self.itemList.items.append(contentsOf: success.items)
+                    if self.itemNumber == 1 {
+                        self.itemList = success
+                        self.lastPage = success.total / 30
+
+                        print(self.lastPage)
+                        dump(self.itemList)
+                        self.totalLabel.text = "\(self.intNumberFormatter(number: success.total)) 개의 검색 결과"
+
+                    } else {
+
+                        self.itemList.items.append(contentsOf: success.items)
+                    }
+
+                    self.searchResultCollectionView.reloadData()
+
+                    if self.itemNumber == 1 {
+                        self.searchResultCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+
+                    }
                 }
-
-                self.searchResultCollectionView.reloadData()
-
-                if self.itemNumber == 1 {
-                    self.searchResultCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
-
-                }
-
 
             case .failure(let failure):
                 print(failure)
@@ -172,7 +177,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = searchResultCollectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCollectionViewCell", for: indexPath) as! SearchResultCollectionViewCell
+        let cell = searchResultCollectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
         let url = URL(string: itemList.items[indexPath.row].image)
         cell.backgroundColor = .clear
 
@@ -184,7 +189,8 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         cell.mallNameLabel.text = itemList.items[indexPath.row].mallName
         cell.mallNameLabel.textColor = .systemGray2
         cell.mallNameLabel.font = .systemFont(ofSize: 13)
-        cell.titleLabel.text = itemList.items[indexPath.row].title
+
+        cell.titleLabel.text = UserDefaults.standard.string(forKey: "Title")
         cell.titleLabel.textColor = .systemGray4
         cell.titleLabel.font = .systemFont(ofSize: 13)
         cell.titleLabel.numberOfLines = 2
@@ -199,8 +205,17 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         cell.likeButton.layer.masksToBounds = true
         cell.likeButton.layer.cornerRadius = 16
 
-        let image = itemList.items[indexPath.row].like ?? false ? "heart.fill" : "heart"
-        cell.likeButton.setImage(UIImage(systemName: image), for: .normal)
+//        if count[itemList.items[indexPath.row].productId] == true {
+//            cell.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//        } else {
+//            cell.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+//        }
+        if let isLiked = count[itemList.items[indexPath.row].productId] as? Bool, isLiked {
+            cell.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            cell.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+
         cell.likeButton.tintColor = .black
 
         return cell
@@ -209,17 +224,24 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         UserDefaults.standard.setValue(itemList.items[indexPath.row].productId, forKey: "ProductId")
         UserDefaults.standard.setValue(itemList.items[indexPath.row].like, forKey: "Like")
-        UserDefaults.standard.setValue(itemList.items[indexPath.row].title, forKey: "Title")
 
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ProductWebViewController") as! ProductWebViewController
+        let title = htmlToString(title: itemList.items[indexPath.row].title)
+        UserDefaults.standard.setValue(title, forKey: "Title")
+
+        let vc = storyboard?.instantiateViewController(withIdentifier: ProductWebViewController.identifier) as! ProductWebViewController
         navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func likeButtonClicked(sender: UIButton) {
-        if itemList.items[sender.tag].like == nil {
+        if itemList.items[sender.tag].like == nil || itemList.items[sender.tag].like == false {
             itemList.items[sender.tag].like = true
+            count[itemList.items[sender.tag].productId] = true
+            UserDefaults.standard.setValue(count, forKey: "Count")
         } else {
             itemList.items[sender.tag].like!.toggle()
+            count[itemList.items[sender.tag].productId] = nil
+            print(count)
+            UserDefaults.standard.setValue(count, forKey: "Count")
         }
 
         searchResultCollectionView.reloadItems(at: [IndexPath(row: sender.tag, section: 0)])
@@ -305,6 +327,21 @@ extension SearchResultViewController {
         let formattedSave = formatter.string(for: intPrice)!
 
         return formattedSave
+    }
+
+    func htmlToString(title: String) -> String {
+        let html = title
+
+        guard let data = html.data(using: .utf8) else {
+            return ""
+        }
+
+        do {
+            let attributedString = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+            return attributedString.string
+        } catch {
+            return ""
+        }
     }
 
 }

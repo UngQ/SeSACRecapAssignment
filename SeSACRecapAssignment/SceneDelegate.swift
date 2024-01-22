@@ -13,10 +13,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+
+        //false라면 사용자가 처음 들어왔을 것이고, 첫 진입 이후에는 True로 바꿔주자.
+        let value = UserDefaults.standard.bool(forKey: "UserState")
+
+        if value == false {
+            //코드를 통해 앱 시작 화면 설정
+            guard let scene = (scene as? UIWindowScene) else { return }
+
+            window = UIWindow(windowScene: scene)
+
+            let sb = UIStoryboard(name: Storyboard.onboarding.rawValue, bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+
+            let nav = UINavigationController(rootViewController: vc)
+
+            window?.rootViewController = nav
+
+            window?.makeKeyAndVisible()
+        } else {
+            guard let scene = (scene as? UIWindowScene) else { return }
+
+            window = UIWindow(windowScene: scene)
+
+            //탭바로 메인 시작하는 방법!!, 탭바 identifier 지정 후 아래 코드
+            let sb = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: Storyboard.mainTabBarController.rawValue) as! UITabBarController
+
+
+            window?.rootViewController = vc
+
+            window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

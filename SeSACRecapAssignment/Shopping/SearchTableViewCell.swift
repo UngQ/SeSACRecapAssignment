@@ -9,29 +9,30 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
-  @IBOutlet var magnifyingglassImageView: UIImageView!
-
   @IBOutlet var currentSearchTextLabel: UILabel!
 
-  @IBOutlet var xmarkImageView: UIImageView!
-  
+    @IBOutlet var magnifyingglassButton: UIButton!
+    @IBOutlet var xmarkButton: UIButton!
+
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    backgroundColor = .clear
+      backgroundColor = .sesacBackground
     currentSearchTextLabel.textColor = .sesacText
     currentSearchTextLabel.font = .systemFont(ofSize: 13)
-    magnifyingglassImageView.image = UIImage(systemName: "magnifyingglass")
-    magnifyingglassImageView.contentMode = .center
 
-    xmarkImageView.image = UIImage(systemName: "xmark")
-    xmarkImageView.contentMode = .center
+      magnifyingglassButton.setTitle("", for: .normal)
+      magnifyingglassButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+
+      xmarkButton.setTitle("", for: .normal)
+      xmarkButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+      xmarkButton.contentMode = .center
   }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        selectionStyle = .blue
     }
+
+    
 
 }
