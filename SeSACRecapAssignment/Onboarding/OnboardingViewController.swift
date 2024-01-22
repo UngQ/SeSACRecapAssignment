@@ -15,7 +15,9 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+ 
+
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButton
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
