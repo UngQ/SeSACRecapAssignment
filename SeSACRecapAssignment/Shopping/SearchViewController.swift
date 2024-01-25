@@ -47,13 +47,6 @@ class SearchViewController: UIViewController {
 
 		searchTableView.reloadData()
 	}
-
-	func showAlert() {
-		let alert = UIAlertController(title: "검색어를 입력하세요!", message: .none, preferredStyle: .alert)
-
-		present(alert, animated: true)
-	}
-
 }
 
 
