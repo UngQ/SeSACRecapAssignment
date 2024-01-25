@@ -7,6 +7,8 @@
 
 import UIKit
 import Alamofire
+import Toast
+
 
 class SearchViewController: UIViewController {
 
@@ -32,6 +34,7 @@ class SearchViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		navigationItem.title = "\(UserDefaults.standard.string(forKey: "Nickname")!)님의 새싹쇼핑"
 		searchTableView.reloadData()
+	
 	}
 
 	@objc func allDeleteButtonClicked() {
@@ -88,15 +91,11 @@ extension SearchViewController: UISearchBarDelegate {
 
 			searchTableView.reloadData()
 
-
-
 			let vc = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
 			navigationController?.pushViewController(vc, animated: true)
 
-
-
 		} else {
-			showAlert()
+			self.view.makeToast("검색어를 입력하세요!", position: .center)
 		}
 	}
 }
