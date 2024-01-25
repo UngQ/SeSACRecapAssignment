@@ -129,6 +129,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jgR-OJ-JQX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="5iw-Xx-lLu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8Il-v5-MGR" secondAttribute="bottom" id="6hA-Z6-xEY"/>

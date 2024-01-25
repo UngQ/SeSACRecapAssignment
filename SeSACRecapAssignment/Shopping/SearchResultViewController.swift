@@ -145,8 +145,6 @@ class SearchResultViewController: UIViewController {
                         self.itemList = success
                         self.lastPage = success.total / 30
 
-                        print(self.lastPage)
-                        dump(self.itemList)
                         self.totalLabel.text = "\(self.intNumberFormatter(number: success.total)) 개의 검색 결과"
 
                     } else {

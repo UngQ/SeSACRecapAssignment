@@ -26,54 +26,7 @@ class ProfileSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .sesacBackground
-        navigationItem.title = "프로필 설정"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.sesacText.cgColor]
-
-        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        self.navigationItem.backBarButtonItem = backBarButton
-
-        imageBackView.backgroundColor = .clear
-
-        profileImageView.image = UIImage(imageLiteralResourceName: "profile\(UserDefaults.standard.integer(forKey: "ImageNumber"))")
-        profileImageView.layer.masksToBounds = true
-        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-        profileImageView.layer.borderColor = UIColor.sesacPoint.cgColor
-        profileImageView.layer.borderWidth = 6
-
-        profileImageButton.setTitle("", for: .normal)
-        profileImageButton.layer.masksToBounds = true
-        profileImageButton.layer.cornerRadius = profileImageView.frame.width / 2
-
-        cameraImageView.image =  .camera
-
-        stackView.backgroundColor = .clear
-
-        userInputTextField.text = UserDefaults.standard.string(forKey: "Nickname") ?? ""
-        userInputTextField.delegate = self
-        userInputTextField.font = .systemFont(ofSize: 16)
-        userInputTextField.textColor = .sesacText
-        userInputTextField.backgroundColor = .clear
-        //몰랐던 것1. placeholder 텍스트 컬러 변경
-        userInputTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력해주세요 :)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.cgColor])
-
-        lineView.backgroundColor = .white
-        
-        resultLabel.text = ""
-        resultLabel.font = .systemFont(ofSize: 14)
-        resultLabel.backgroundColor = .clear
-        resultLabel.textColor = .sesacPoint
-
-        completeButton.backgroundColor = .sesacPoint
-        completeButton.setTitle("완료", for: .normal)
-        completeButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
-        completeButton.layer.cornerRadius = 8
-        completeButton.layer.masksToBounds = true
-
-        profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
-
-        completeButton.addTarget(self, action: #selector(completeButtonClicked), for: .touchUpInside)
-
+		configureView()
         
     }
 
@@ -104,6 +57,7 @@ class ProfileSettingViewController: UIViewController {
                 navigationController?.popViewController(animated: true)
             } else {
                 UserDefaults.standard.setValue(true, forKey: "UserState")
+				notificationSet()
                 let sb = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil)
                 let vc = sb.instantiateViewController(withIdentifier: Storyboard.mainTabBarController.rawValue) as! UITabBarController
                 vc.modalTransitionStyle = .crossDissolve
@@ -139,6 +93,76 @@ class ProfileSettingViewController: UIViewController {
 
         return "사용할 수 있는 닉네임이에요"
     }
+}
+
+extension ProfileSettingViewController {
+	func configureView() {
+		view.backgroundColor = .sesacBackground
+		navigationItem.title = "프로필 설정"
+		navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.sesacText.cgColor]
+
+		let backBarButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+		self.navigationItem.backBarButtonItem = backBarButton
+
+		imageBackView.backgroundColor = .clear
+
+		profileImageView.image = UIImage(imageLiteralResourceName: "profile\(UserDefaults.standard.integer(forKey: "ImageNumber"))")
+		profileImageView.layer.masksToBounds = true
+		profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
+		profileImageView.layer.borderColor = UIColor.sesacPoint.cgColor
+		profileImageView.layer.borderWidth = 6
+
+		profileImageButton.setTitle("", for: .normal)
+		profileImageButton.layer.masksToBounds = true
+		profileImageButton.layer.cornerRadius = profileImageView.frame.width / 2
+
+		cameraImageView.image =  .camera
+
+		stackView.backgroundColor = .clear
+
+		userInputTextField.text = UserDefaults.standard.string(forKey: "Nickname") ?? ""
+		userInputTextField.delegate = self
+		userInputTextField.font = .systemFont(ofSize: 16)
+		userInputTextField.textColor = .sesacText
+		userInputTextField.backgroundColor = .clear
+		//몰랐던 것1. placeholder 텍스트 컬러 변경
+		userInputTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력해주세요 :)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.cgColor])
+
+		lineView.backgroundColor = .white
+		
+		resultLabel.text = ""
+		resultLabel.font = .systemFont(ofSize: 14)
+		resultLabel.backgroundColor = .clear
+		resultLabel.textColor = .sesacPoint
+
+		completeButton.backgroundColor = .sesacPoint
+		completeButton.setTitle("완료", for: .normal)
+		completeButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
+		completeButton.layer.cornerRadius = 8
+		completeButton.layer.masksToBounds = true
+
+		profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
+
+		completeButton.addTarget(self, action: #selector(completeButtonClicked), for: .touchUpInside)
+	}
+	
+	func notificationSet() {
+		
+		let content = UNMutableNotificationContent()
+		content.title = "쇼핑 안하세요?"
+		content.body = "하루에 한번은 하셔야죠!!"
+		content.badge = 2
+		
+		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+		
+		var component = DateComponents()
+		component.second = 30
+		let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: true)
+		
+		let request = UNNotificationRequest(identifier: "test", content: content, trigger: calendarTrigger)
+		
+		UNUserNotificationCenter.current().add(request)
+	}
 }
 
 
