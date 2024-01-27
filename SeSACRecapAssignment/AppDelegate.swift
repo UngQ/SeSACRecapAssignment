@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UNUserNotificationCenter.current().delegate = self
 		
 		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-			print(success, error)
+
+			
 		}
 		
 		

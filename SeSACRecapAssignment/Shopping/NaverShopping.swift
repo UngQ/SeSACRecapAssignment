@@ -30,7 +30,9 @@ struct Item: Codable {
   let category2: String
   let category3: String
   let category4: String
-  var like: Bool?
 }
+
+
+
 
 

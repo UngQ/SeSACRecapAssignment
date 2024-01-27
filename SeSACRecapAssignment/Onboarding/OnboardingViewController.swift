@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class OnboardingViewController: UIViewController {
 
     @IBOutlet var titleImageView: UIImageView!
@@ -38,10 +39,17 @@ class OnboardingViewController: UIViewController {
         startButton.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
     }
     override func viewWillAppear(_ animated: Bool) {
+
         UserDefaults.standard.setValue(Int.random(in: 1...ProfileImage.allCases.count), forKey: "ImageNumber")
         UserDefaults.standard.setValue("", forKey: "Nickname")
         UserDefaults.standard.setValue([], forKey: "SearchHistory")
-        UserDefaults.standard.setValue([:], forKey: "Count")
+		UserDefaults.standard.setValue([], forKey: "Wish")
+
+
+		SearchViewController.searchItem = ""
+		SearchViewController.wishList = []
+		print("5")
+
     }
 
     @objc func startButtonClicked() {

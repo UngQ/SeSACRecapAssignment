@@ -10,54 +10,55 @@ import WebKit
 
 class ProductWebViewController: UIViewController {
 
-  @IBOutlet var webView: WKWebView!
-  let productId = UserDefaults.standard.string(forKey: "ProductId")!
-  let itemTitle = UserDefaults.standard.string(forKey: "Title")
-  var like = UserDefaults.standard.bool(forKey: "Like")
-    var count = UserDefaults.standard.dictionary(forKey: "Count") as? [String: Bool]
+	@IBOutlet var webView: WKWebView!
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
+	let productId = SearchResultViewController.product.productId
+	let itemTitle = SearchResultViewController.product.title
 
-    navigationItem.title = "\(UserDefaults.standard.string(forKey: "Title")!)"
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-      if let isLiked = count?[productId] as? Bool, isLiked {
-          let item = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(heartButtonClicked))
-          navigationItem.rightBarButtonItem = item
-      } else {
-          let item = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(heartButtonClicked))
-          navigationItem.rightBarButtonItem = item
-      }
+		navigationItem.title = SearchResultViewController.htmlToString(title: itemTitle)
+		
 
-    view.backgroundColor = .sesacBackground
-    if let url = URL(string: url(productId)) {
+		if SearchViewController.wishList.contains(where: { $0.productId == productId }) {
+			// 'like' 상태일 때
+			let item = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(heartButtonClicked))
+			navigationItem.rightBarButtonItem = item
+		} else {
+			// 'like' 상태가 아닐 때
+			let item = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(heartButtonClicked))
+			navigationItem.rightBarButtonItem = item
+		}
 
-      let request = URLRequest(url: url)
+		view.backgroundColor = .sesacBackground
 
-      webView.load(request)
-    }
-  }
+		if let url = URL(string: url(productId)) {
 
-    @objc func heartButtonClicked() {
-        if var updatedCount = UserDefaults.standard.dictionary(forKey: "Count") as? [String: Bool] {
-            if updatedCount[productId] == true {
-                updatedCount[productId] = nil
-            } else {
-                updatedCount[productId] = true
-            }
-            UserDefaults.standard.set(updatedCount, forKey: "Count")
+			let request = URLRequest(url: url)
 
-            if updatedCount[productId] == true {
-                navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
-            } else {
-                navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
-            }
-        }
-    }
+			webView.load(request)
+		}
+	}
+
+	@objc func heartButtonClicked() {
+
+		if let index = SearchViewController.wishList.firstIndex(where: { $0.productId == productId }) {
+			SearchViewController.wishList.remove(at: index)
+			navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+
+		} else {
+			SearchViewController.wishList.append(SearchResultViewController.product)
+			navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+		}
+		SearchViewController.saveStructUserDefaults()
+		SearchViewController.loadStructUserDefaults()
+
+	}
 
 
-  func url(_ productId: String) -> String {
-    return "https://msearch.shopping.naver.com/product/\(productId)"
-  }
+	func url(_ productId: String) -> String {
+		return "https://msearch.shopping.naver.com/product/\(productId)"
+	}
 
 }

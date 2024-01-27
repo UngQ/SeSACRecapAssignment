@@ -22,19 +22,24 @@ class SearchViewController: UIViewController {
 
 	@IBOutlet var searchTableView: UITableView!
 
+	static var searchItem = ""
+	static var wishList: [Item] = []
+	
 	var searchHistory = UserDefaults.standard.array(forKey: "SearchHistory") as? [String] ?? []
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		SearchViewController.loadStructUserDefaults()
 
 		configureView()
+
 		allDeleteButton.addTarget(self, action: #selector(allDeleteButtonClicked), for: .touchUpInside)
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		navigationItem.title = "\(UserDefaults.standard.string(forKey: "Nickname")!)님의 새싹쇼핑"
 		searchTableView.reloadData()
-	
+
 	}
 
 	@objc func allDeleteButtonClicked() {
@@ -68,7 +73,7 @@ extension SearchViewController: UISearchBarDelegate {
 		if searchBar.text != "" {
 
 
-			UserDefaults.standard.setValue(searchBar.text, forKey: "SearchItem")
+			SearchViewController.searchItem = searchBar.searchTextField.text!
 
 			searchHistory.insert(searchBar.searchTextField.text!, at: 0)
 
@@ -83,6 +88,8 @@ extension SearchViewController: UISearchBarDelegate {
 			allDeleteButton.isHidden = false
 
 			searchTableView.reloadData()
+			print(SearchViewController.searchItem)
+
 
 			let vc = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
 			navigationController?.pushViewController(vc, animated: true)
@@ -124,21 +131,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-		UserDefaults.standard.setValue(searchHistory[indexPath.row], forKey: "SearchItem")
-		print(searchHistory)
+		SearchViewController.searchItem = searchHistory[indexPath.row]
 		searchHistory.remove(at: indexPath.row)
-		print(searchHistory)
-		searchHistory.insert(UserDefaults.standard.string(forKey: "SearchItem")!, at: 0)
-		print(searchHistory)
+		searchHistory.insert(SearchViewController.searchItem, at: 0)
+		print(SearchViewController.searchItem)
 
 		tableView.reloadData()
 		view.endEditing(true)
 
 		let vc = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
 		navigationController?.pushViewController(vc, animated: true)
-
-
-
 	}
 
 
@@ -221,4 +223,26 @@ extension SearchViewController {
 		}
 
 	}
+}
+
+
+extension SearchViewController {
+	static func saveStructUserDefaults() {
+		let encoder = JSONEncoder()
+		if let encoded = try? encoder.encode(SearchViewController.wishList) {
+			UserDefaults.standard.setValue(encoded, forKey: "Wish")
+		}
+	}
+
+	static func loadStructUserDefaults() {
+		if let savedData = UserDefaults.standard.object(forKey: "Wish") as? Data {
+			let decoder = JSONDecoder()
+			if let savedWishList = try? decoder.decode([Item].self, from: savedData) {
+				SearchViewController.wishList = savedWishList
+//				return savedWishList
+			}
+		}
+//		return []
+	}
+
 }

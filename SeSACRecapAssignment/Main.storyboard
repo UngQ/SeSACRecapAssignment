@@ -444,9 +444,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LZl-vB-w2a">
-                                <rect key="frame" x="16" y="176" width="361" height="631"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LZl-vB-w2a">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O20-nK-XN4">
                                     <size key="itemSize" width="128" height="128"/>
@@ -456,10 +455,10 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SearchResultCollectionViewCell" id="WK8-CV-Q5c" customClass="SearchResultCollectionViewCell" customModule="SeSACRecapAssignment" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4OI-jB-aD8">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -468,8 +467,17 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kCa-ms-ICk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kCa-ms-ICk" firstAttribute="trailing" secondItem="LZl-vB-w2a" secondAttribute="trailing" id="RTG-s8-WHh"/>
+                            <constraint firstItem="LZl-vB-w2a" firstAttribute="top" secondItem="kCa-ms-ICk" secondAttribute="top" id="SPg-z6-vUJ"/>
+                            <constraint firstAttribute="bottom" secondItem="LZl-vB-w2a" secondAttribute="bottom" id="YTF-iv-NKT"/>
+                            <constraint firstItem="LZl-vB-w2a" firstAttribute="leading" secondItem="kCa-ms-ICk" secondAttribute="leading" id="dZl-cY-oD0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Iq9-tb-pFl"/>
+                    <connections>
+                        <outlet property="wishListCollectionView" destination="LZl-vB-w2a" id="i1x-MS-AaN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdE-bh-8go" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -535,11 +543,11 @@
             </objects>
             <point key="canvasLocation" x="1873" y="1506"/>
         </scene>
-        <!--Item-->
+        <!--위시-->
         <scene sceneID="7eK-G5-thE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YmV-oG-Bhf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="9Qg-zk-qto"/>
+                    <tabBarItem key="tabBarItem" title="위시" image="heart" catalog="system" id="9Qg-zk-qto"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oHR-hp-BTE">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -558,6 +566,7 @@
     <color key="tintColor" name="sesacTextColor"/>
     <resources>
         <image name="empty" width="320" height="236"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <namedColor name="sesacTextColor">
