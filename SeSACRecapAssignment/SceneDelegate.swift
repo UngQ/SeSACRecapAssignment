@@ -36,13 +36,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             window = UIWindow(windowScene: scene)
 
-            //탭바로 메인 시작하는 방법!!, 탭바 identifier 지정 후 아래 코드
-            let sb = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: Storyboard.mainTabBarController.rawValue) as! UITabBarController
+//            //탭바로 메인 시작하는 방법!!, 탭바 identifier 지정 후 아래 코드
+//            let sb = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil)
+//            let vc = sb.instantiateViewController(withIdentifier: Storyboard.mainTabBarController.rawValue) as! UITabBarController
+//
+//
+//            window?.rootViewController = vc
 
 
-            window?.rootViewController = vc
-
+		
+			window?.rootViewController = CustomTabBarController()
             window?.makeKeyAndVisible()
         }
     }

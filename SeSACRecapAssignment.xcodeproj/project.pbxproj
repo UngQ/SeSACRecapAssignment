@@ -20,6 +20,12 @@
 		A5BDFD712B62AFB500095511 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFD702B62AFB500095511 /* WishListViewController.swift */; };
 		A5BDFD742B62B77700095511 /* ResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFD722B62B77700095511 /* ResultCollectionViewCell.swift */; };
 		A5BDFD752B62B77700095511 /* ResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5BDFD732B62B77700095511 /* ResultCollectionViewCell.xib */; };
+		A5BDFD912B66BD3E00095511 /* CodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFD902B66BD3E00095511 /* CodeSearchViewController.swift */; };
+		A5BDFD962B66C06700095511 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5BDFD952B66C06700095511 /* SnapKit */; };
+		A5BDFD982B66C06700095511 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A5BDFD972B66C06700095511 /* SnapKit-Dynamic */; };
+		A5BDFD9A2B66C47C00095511 /* CodeSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFD992B66C47C00095511 /* CodeSearchTableViewCell.swift */; };
+		A5BDFDD32B6792AC00095511 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFDD22B6792AC00095511 /* CustomTabBarController.swift */; };
+		A5BDFDD62B67E13200095511 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFDD52B67E13200095511 /* ProfileImageView.swift */; };
 		A5FB78A52B5BFF7200B3D5D9 /* Protocol + Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78A42B5BFF7200B3D5D9 /* Protocol + Enum.swift */; };
 		A5FB78A72B5C278700B3D5D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FB78A62B5C278700B3D5D9 /* Main.storyboard */; };
 		A5FB78AA2B5C287300B3D5D9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78A92B5C287300B3D5D9 /* SearchViewController.swift */; };
@@ -53,6 +59,10 @@
 		A5BDFD702B62AFB500095511 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		A5BDFD722B62B77700095511 /* ResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		A5BDFD732B62B77700095511 /* ResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCollectionViewCell.xib; sourceTree = "<group>"; };
+		A5BDFD902B66BD3E00095511 /* CodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSearchViewController.swift; sourceTree = "<group>"; };
+		A5BDFD992B66C47C00095511 /* CodeSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSearchTableViewCell.swift; sourceTree = "<group>"; };
+		A5BDFDD22B6792AC00095511 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		A5BDFDD52B67E13200095511 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		A5FB78A42B5BFF7200B3D5D9 /* Protocol + Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol + Enum.swift"; sourceTree = "<group>"; };
 		A5FB78A62B5C278700B3D5D9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A5FB78A92B5C287300B3D5D9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BDFD982B66C06700095511 /* SnapKit-Dynamic in Frameworks */,
 				A5BDFD6D2B62ABC200095511 /* Toast in Frameworks */,
+				A5BDFD962B66C06700095511 /* SnapKit in Frameworks */,
 				A5FB78BA2B5D285500B3D5D9 /* Kingfisher in Frameworks */,
 				A5FB78AF2B5CFB7E00B3D5D9 /* Alamofire in Frameworks */,
 			);
@@ -86,6 +98,8 @@
 		A59F84382B59049B00F1BA27 = {
 			isa = PBXGroup;
 			children = (
+				A5BDFDD42B67DEE500095511 /* CustomView */,
+				A5BDFDD12B67928800095511 /* CustomTabBar */,
 				A5BDFD692B62A6A100095511 /* .gitignore */,
 				A59F84432B59049B00F1BA27 /* SeSACRecapAssignment */,
 				A59F84422B59049B00F1BA27 /* Products */,
@@ -138,6 +152,22 @@
 			path = WishList;
 			sourceTree = "<group>";
 		};
+		A5BDFDD12B67928800095511 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A5BDFDD22B6792AC00095511 /* CustomTabBarController.swift */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		A5BDFDD42B67DEE500095511 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				A5BDFDD52B67E13200095511 /* ProfileImageView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		A5FB78A32B5BFF4E00B3D5D9 /* Protocol + Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +187,8 @@
 				A5FB78BB2B5D8AE900B3D5D9 /* ProductWebViewController.swift */,
 				A5BDFD722B62B77700095511 /* ResultCollectionViewCell.swift */,
 				A5BDFD732B62B77700095511 /* ResultCollectionViewCell.xib */,
+				A5BDFD902B66BD3E00095511 /* CodeSearchViewController.swift */,
+				A5BDFD992B66C47C00095511 /* CodeSearchTableViewCell.swift */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -193,6 +225,8 @@
 				A5FB78AE2B5CFB7E00B3D5D9 /* Alamofire */,
 				A5FB78B92B5D285500B3D5D9 /* Kingfisher */,
 				A5BDFD6C2B62ABC200095511 /* Toast */,
+				A5BDFD952B66C06700095511 /* SnapKit */,
+				A5BDFD972B66C06700095511 /* SnapKit-Dynamic */,
 			);
 			productName = SeSACRecapAssignment;
 			productReference = A59F84412B59049B00F1BA27 /* SeSACRecapAssignment.app */;
@@ -226,6 +260,7 @@
 				A5FB78AD2B5CFB7E00B3D5D9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A5FB78B82B5D285500B3D5D9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A5BDFD6B2B62ABC200095511 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				A5BDFD942B66C06700095511 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = A59F84422B59049B00F1BA27 /* Products */;
 			projectDirPath = "";
@@ -259,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BDFD9A2B66C47C00095511 /* CodeSearchTableViewCell.swift in Sources */,
 				A5FB78AC2B5C3B8000B3D5D9 /* SearchTableViewCell.swift in Sources */,
 				A5BDFD742B62B77700095511 /* ResultCollectionViewCell.swift in Sources */,
 				A59F84492B59049B00F1BA27 /* OnboardingViewController.swift in Sources */,
@@ -266,6 +302,7 @@
 				A5BDFD712B62AFB500095511 /* WishListViewController.swift in Sources */,
 				A5FB78AA2B5C287300B3D5D9 /* SearchViewController.swift in Sources */,
 				A5FB78B12B5CFC7800B3D5D9 /* APIKey.swift in Sources */,
+				A5BDFDD32B6792AC00095511 /* CustomTabBarController.swift in Sources */,
 				A5FB78C52B5E443D00B3D5D9 /* SettingViewController.swift in Sources */,
 				A5FB78CC2B5E451100B3D5D9 /* SettingTableViewCell.swift in Sources */,
 				A5FB78BC2B5D8AE900B3D5D9 /* ProductWebViewController.swift in Sources */,
@@ -273,8 +310,10 @@
 				A59F84472B59049B00F1BA27 /* SceneDelegate.swift in Sources */,
 				A59F845A2B5912CC00F1BA27 /* ProfileSettingViewController.swift in Sources */,
 				A5FB78B72B5D036D00B3D5D9 /* SearchResultCollectionViewCell.swift in Sources */,
+				A5BDFDD62B67E13200095511 /* ProfileImageView.swift in Sources */,
 				A5FB78C82B5E44FD00B3D5D9 /* PersonalInformationTableViewCell.swift in Sources */,
 				A5FB78A52B5BFF7200B3D5D9 /* Protocol + Enum.swift in Sources */,
+				A5BDFD912B66BD3E00095511 /* CodeSearchViewController.swift in Sources */,
 				A5FB78B52B5D029800B3D5D9 /* SearchResultViewController.swift in Sources */,
 				A5FB78B32B5CFEED00B3D5D9 /* NaverShopping.swift in Sources */,
 			);
@@ -437,7 +476,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,7 +510,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -521,6 +560,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		A5BDFD942B66C06700095511 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
 		A5FB78AD2B5CFB7E00B3D5D9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -544,6 +591,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A5BDFD6B2B62ABC200095511 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		A5BDFD952B66C06700095511 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5BDFD942B66C06700095511 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		A5BDFD972B66C06700095511 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5BDFD942B66C06700095511 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
 		};
 		A5FB78AE2B5CFB7E00B3D5D9 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

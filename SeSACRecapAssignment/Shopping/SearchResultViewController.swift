@@ -54,6 +54,8 @@ class SearchResultViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		view.backgroundColor = .black
+
 		configureView()
 
 		designButton(button: firstButton, title: ButtonTitle.first.rawValue, active: true)
@@ -212,6 +214,8 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
 		let vc = storyboard?.instantiateViewController(withIdentifier: ProductWebViewController.identifier) as! ProductWebViewController
 		navigationController?.pushViewController(vc, animated: true)
 	}
+
+	
 
 	@objc func likeButtonClicked(sender: UIButton) {
 		if let index = SearchViewController.wishList.firstIndex(where: { $0.productId == itemList.items[sender.tag].productId }) {

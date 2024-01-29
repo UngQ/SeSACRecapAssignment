@@ -58,8 +58,11 @@ class ProfileSettingViewController: UIViewController {
             } else {
                 UserDefaults.standard.setValue(true, forKey: "UserState")
 				notificationSet()
-                let sb = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: Storyboard.mainTabBarController.rawValue) as! UITabBarController
+
+//                let sb = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil)
+//                let vc = sb.instantiateViewController(withIdentifier: Storyboard.mainTabBarController.rawValue) as! UITabBarController
+
+				let vc = CustomTabBarController()
                 vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle = .fullScreen
                 present(vc, animated: true)

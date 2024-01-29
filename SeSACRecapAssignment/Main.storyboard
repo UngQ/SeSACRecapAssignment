@@ -410,7 +410,6 @@
                     <connections>
                         <segue destination="uke-jt-ndl" kind="relationship" relationship="viewControllers" id="RwA-pF-ClU"/>
                         <segue destination="YmV-oG-Bhf" kind="relationship" relationship="viewControllers" id="F2I-hG-SAc"/>
-                        <segue destination="3Gn-zP-yik" kind="relationship" relationship="viewControllers" id="1IS-m0-Xn6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPH-ji-njA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -492,7 +491,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="n3C-R8-ytY">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XEm-TL-Zbj">
                                         <rect key="frame" x="20" y="55.333332061767578" width="353" height="44.666667938232422"/>
@@ -535,9 +534,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qhc-vn-7DN" kind="relationship" relationship="rootViewController" id="THg-Gn-6VG"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXf-bj-lqc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
