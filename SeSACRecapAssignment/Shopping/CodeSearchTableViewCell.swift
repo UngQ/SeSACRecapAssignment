@@ -19,9 +19,9 @@ class CodeSearchTableViewCell: UITableViewCell {
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-		self.addSubview(currentSearchTextLabel)
-		self.addSubview(magnifyingglassButton)
-		self.addSubview(xmarkButton)
+		contentView.addSubview(currentSearchTextLabel)
+		contentView.addSubview(magnifyingglassButton)
+		contentView.addSubview(xmarkButton)
 
 		backgroundColor = .clear
 

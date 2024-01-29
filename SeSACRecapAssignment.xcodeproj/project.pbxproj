@@ -14,7 +14,6 @@
 		A59F844E2B59049D00F1BA27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59F844D2B59049D00F1BA27 /* Assets.xcassets */; };
 		A59F84512B59049D00F1BA27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59F844F2B59049D00F1BA27 /* LaunchScreen.storyboard */; };
 		A59F845A2B5912CC00F1BA27 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84592B5912CC00F1BA27 /* ProfileSettingViewController.swift */; };
-		A59F84612B5999CE00F1BA27 /* ProfileImageSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84602B5999CE00F1BA27 /* ProfileImageSettingViewController.swift */; };
 		A5BDFD6A2B62A6A100095511 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A5BDFD692B62A6A100095511 /* .gitignore */; };
 		A5BDFD6D2B62ABC200095511 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = A5BDFD6C2B62ABC200095511 /* Toast */; };
 		A5BDFD712B62AFB500095511 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFD702B62AFB500095511 /* WishListViewController.swift */; };
@@ -25,11 +24,12 @@
 		A5BDFD982B66C06700095511 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A5BDFD972B66C06700095511 /* SnapKit-Dynamic */; };
 		A5BDFD9A2B66C47C00095511 /* CodeSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFD992B66C47C00095511 /* CodeSearchTableViewCell.swift */; };
 		A5BDFDD32B6792AC00095511 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFDD22B6792AC00095511 /* CustomTabBarController.swift */; };
-		A5BDFDD62B67E13200095511 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFDD52B67E13200095511 /* ProfileImageView.swift */; };
+		A5BDFDD82B67E38D00095511 /* ProfileImageUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFDD72B67E38D00095511 /* ProfileImageUIButton.swift */; };
+		A5BDFDDA2B67E5BB00095511 /* CodeProfileImageSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFDD92B67E5BB00095511 /* CodeProfileImageSettingViewController.swift */; };
+		A5BDFDDC2B67E9EE00095511 /* CodeProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFDDB2B67E9EE00095511 /* CodeProfileImageCollectionViewCell.swift */; };
+		A5BDFDDE2B6805CC00095511 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDFDDD2B6805CC00095511 /* Enum.swift */; };
 		A5FB78A52B5BFF7200B3D5D9 /* Protocol + Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78A42B5BFF7200B3D5D9 /* Protocol + Enum.swift */; };
 		A5FB78A72B5C278700B3D5D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FB78A62B5C278700B3D5D9 /* Main.storyboard */; };
-		A5FB78AA2B5C287300B3D5D9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78A92B5C287300B3D5D9 /* SearchViewController.swift */; };
-		A5FB78AC2B5C3B8000B3D5D9 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78AB2B5C3B8000B3D5D9 /* SearchTableViewCell.swift */; };
 		A5FB78AF2B5CFB7E00B3D5D9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A5FB78AE2B5CFB7E00B3D5D9 /* Alamofire */; };
 		A5FB78B12B5CFC7800B3D5D9 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78B02B5CFC7800B3D5D9 /* APIKey.swift */; };
 		A5FB78B32B5CFEED00B3D5D9 /* NaverShopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78B22B5CFEED00B3D5D9 /* NaverShopping.swift */; };
@@ -54,7 +54,6 @@
 		A59F84502B59049D00F1BA27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A59F84522B59049E00F1BA27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A59F84592B5912CC00F1BA27 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
-		A59F84602B5999CE00F1BA27 /* ProfileImageSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSettingViewController.swift; sourceTree = "<group>"; };
 		A5BDFD692B62A6A100095511 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A5BDFD702B62AFB500095511 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		A5BDFD722B62B77700095511 /* ResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -62,11 +61,12 @@
 		A5BDFD902B66BD3E00095511 /* CodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSearchViewController.swift; sourceTree = "<group>"; };
 		A5BDFD992B66C47C00095511 /* CodeSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSearchTableViewCell.swift; sourceTree = "<group>"; };
 		A5BDFDD22B6792AC00095511 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		A5BDFDD52B67E13200095511 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		A5BDFDD72B67E38D00095511 /* ProfileImageUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageUIButton.swift; sourceTree = "<group>"; };
+		A5BDFDD92B67E5BB00095511 /* CodeProfileImageSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeProfileImageSettingViewController.swift; sourceTree = "<group>"; };
+		A5BDFDDB2B67E9EE00095511 /* CodeProfileImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeProfileImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		A5BDFDDD2B6805CC00095511 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		A5FB78A42B5BFF7200B3D5D9 /* Protocol + Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol + Enum.swift"; sourceTree = "<group>"; };
 		A5FB78A62B5C278700B3D5D9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		A5FB78A92B5C287300B3D5D9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		A5FB78AB2B5C3B8000B3D5D9 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		A5FB78B02B5CFC7800B3D5D9 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		A5FB78B22B5CFEED00B3D5D9 /* NaverShopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShopping.swift; sourceTree = "<group>"; };
 		A5FB78B42B5D029800B3D5D9 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -98,9 +98,9 @@
 		A59F84382B59049B00F1BA27 = {
 			isa = PBXGroup;
 			children = (
+				A5BDFD692B62A6A100095511 /* .gitignore */,
 				A5BDFDD42B67DEE500095511 /* CustomView */,
 				A5BDFDD12B67928800095511 /* CustomTabBar */,
-				A5BDFD692B62A6A100095511 /* .gitignore */,
 				A59F84432B59049B00F1BA27 /* SeSACRecapAssignment */,
 				A59F84422B59049B00F1BA27 /* Products */,
 			);
@@ -129,6 +129,7 @@
 				A59F844F2B59049D00F1BA27 /* LaunchScreen.storyboard */,
 				A59F84522B59049E00F1BA27 /* Info.plist */,
 				A5FB78B02B5CFC7800B3D5D9 /* APIKey.swift */,
+				A5BDFDDD2B6805CC00095511 /* Enum.swift */,
 			);
 			path = SeSACRecapAssignment;
 			sourceTree = "<group>";
@@ -139,7 +140,8 @@
 				A59F844A2B59049B00F1BA27 /* Onboarding.storyboard */,
 				A59F84482B59049B00F1BA27 /* OnboardingViewController.swift */,
 				A59F84592B5912CC00F1BA27 /* ProfileSettingViewController.swift */,
-				A59F84602B5999CE00F1BA27 /* ProfileImageSettingViewController.swift */,
+				A5BDFDD92B67E5BB00095511 /* CodeProfileImageSettingViewController.swift */,
+				A5BDFDDB2B67E9EE00095511 /* CodeProfileImageCollectionViewCell.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -163,7 +165,7 @@
 		A5BDFDD42B67DEE500095511 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				A5BDFDD52B67E13200095511 /* ProfileImageView.swift */,
+				A5BDFDD72B67E38D00095511 /* ProfileImageUIButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -180,15 +182,13 @@
 			isa = PBXGroup;
 			children = (
 				A5FB78B22B5CFEED00B3D5D9 /* NaverShopping.swift */,
-				A5FB78A92B5C287300B3D5D9 /* SearchViewController.swift */,
-				A5FB78AB2B5C3B8000B3D5D9 /* SearchTableViewCell.swift */,
+				A5BDFD902B66BD3E00095511 /* CodeSearchViewController.swift */,
+				A5BDFD992B66C47C00095511 /* CodeSearchTableViewCell.swift */,
 				A5FB78B42B5D029800B3D5D9 /* SearchResultViewController.swift */,
 				A5FB78B62B5D036D00B3D5D9 /* SearchResultCollectionViewCell.swift */,
 				A5FB78BB2B5D8AE900B3D5D9 /* ProductWebViewController.swift */,
 				A5BDFD722B62B77700095511 /* ResultCollectionViewCell.swift */,
 				A5BDFD732B62B77700095511 /* ResultCollectionViewCell.xib */,
-				A5BDFD902B66BD3E00095511 /* CodeSearchViewController.swift */,
-				A5BDFD992B66C47C00095511 /* CodeSearchTableViewCell.swift */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -295,12 +295,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5BDFD9A2B66C47C00095511 /* CodeSearchTableViewCell.swift in Sources */,
-				A5FB78AC2B5C3B8000B3D5D9 /* SearchTableViewCell.swift in Sources */,
 				A5BDFD742B62B77700095511 /* ResultCollectionViewCell.swift in Sources */,
 				A59F84492B59049B00F1BA27 /* OnboardingViewController.swift in Sources */,
-				A59F84612B5999CE00F1BA27 /* ProfileImageSettingViewController.swift in Sources */,
+				A5BDFDD82B67E38D00095511 /* ProfileImageUIButton.swift in Sources */,
 				A5BDFD712B62AFB500095511 /* WishListViewController.swift in Sources */,
-				A5FB78AA2B5C287300B3D5D9 /* SearchViewController.swift in Sources */,
+				A5BDFDDE2B6805CC00095511 /* Enum.swift in Sources */,
+				A5BDFDDA2B67E5BB00095511 /* CodeProfileImageSettingViewController.swift in Sources */,
 				A5FB78B12B5CFC7800B3D5D9 /* APIKey.swift in Sources */,
 				A5BDFDD32B6792AC00095511 /* CustomTabBarController.swift in Sources */,
 				A5FB78C52B5E443D00B3D5D9 /* SettingViewController.swift in Sources */,
@@ -309,8 +309,8 @@
 				A59F84452B59049B00F1BA27 /* AppDelegate.swift in Sources */,
 				A59F84472B59049B00F1BA27 /* SceneDelegate.swift in Sources */,
 				A59F845A2B5912CC00F1BA27 /* ProfileSettingViewController.swift in Sources */,
+				A5BDFDDC2B67E9EE00095511 /* CodeProfileImageCollectionViewCell.swift in Sources */,
 				A5FB78B72B5D036D00B3D5D9 /* SearchResultCollectionViewCell.swift in Sources */,
-				A5BDFDD62B67E13200095511 /* ProfileImageView.swift in Sources */,
 				A5FB78C82B5E44FD00B3D5D9 /* PersonalInformationTableViewCell.swift in Sources */,
 				A5FB78A52B5BFF7200B3D5D9 /* Protocol + Enum.swift in Sources */,
 				A5BDFD912B66BD3E00095511 /* CodeSearchViewController.swift in Sources */,
@@ -476,7 +476,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,7 +510,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

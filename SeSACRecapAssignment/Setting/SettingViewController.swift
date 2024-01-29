@@ -87,9 +87,7 @@ class SettingViewController: UIViewController {
     }
 
     @objc func profileImageButtonClicked() {
-        let sb = UIStoryboard(name: Storyboard.onboarding.rawValue, bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: ProfileImageSettingViewController.identifier) as! ProfileImageSettingViewController
-            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.pushViewController(CodeProfileImageSettingViewController(), animated: true)
         }
     }
 

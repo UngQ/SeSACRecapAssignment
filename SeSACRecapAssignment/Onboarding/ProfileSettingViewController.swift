@@ -22,45 +22,37 @@ class ProfileSettingViewController: UIViewController {
     @IBOutlet var completeButton: UIButton!
 
     var pass: Bool = false
+	let image = UserDefaults.standard.integer(forKey: "ImageNumber")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		print("viewDidLoad")
 		configureView()
         
     }
 
 
     override func viewWillAppear(_ animated: Bool) {
-
-        //최초 실행에는 0으로 들어오므로 실행하지 않음
-        if UserDefaults.standard.integer(forKey: "ImageNumber") != 0 {
-            profileImageView.image = UIImage(imageLiteralResourceName: "profile\(UserDefaults.standard.integer(forKey: "ImageNumber"))")
-
-        }
+		print("viewWillAppear")
+		let image = UserDefaults.standard.integer(forKey: "ImageNumber")
+		profileImageView.image = UIImage(imageLiteralResourceName: 		ProfileImage.allCases[image].rawValue)
+        
     }
 
 
     @objc func profileImageButtonClicked() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ProfileImageSettingViewController.identifier) as! ProfileImageSettingViewController
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = storyboard?.instantiateViewController(withIdentifier: ProfileImageSettingViewController.identifier) as! ProfileImageSettingViewController
+        navigationController?.pushViewController(CodeProfileImageSettingViewController(), animated: true)
     }
 
     @objc func completeButtonClicked() {
         if pass {
             UserDefaults.standard.setValue(userInputTextField.text, forKey: "Nickname")
-
-            // 온보딩이 아닌 메인에서 프로필 수정하면, 설정 화면으로 전환하고 싶었는데
-            // 화면 전환시 생기는 네비게이션 백버튼 처리가 잘 안되어.. 검색화면으로 이동하게 처리
             if UserDefaults.standard.bool(forKey: "UserState") == true {
-
                 navigationController?.popViewController(animated: true)
             } else {
                 UserDefaults.standard.setValue(true, forKey: "UserState")
 				notificationSet()
-
-//                let sb = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil)
-//                let vc = sb.instantiateViewController(withIdentifier: Storyboard.mainTabBarController.rawValue) as! UITabBarController
 
 				let vc = CustomTabBarController()
                 vc.modalTransitionStyle = .crossDissolve
@@ -109,11 +101,11 @@ extension ProfileSettingViewController {
 
 		imageBackView.backgroundColor = .clear
 
-		profileImageView.image = UIImage(imageLiteralResourceName: "profile\(UserDefaults.standard.integer(forKey: "ImageNumber"))")
 		profileImageView.layer.masksToBounds = true
 		profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
 		profileImageView.layer.borderColor = UIColor.sesacPoint.cgColor
 		profileImageView.layer.borderWidth = 6
+
 
 		profileImageButton.setTitle("", for: .normal)
 		profileImageButton.layer.masksToBounds = true

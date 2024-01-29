@@ -29,15 +29,7 @@ extension UIViewController: ReusableViewProtocol {
     }
 }
 
-enum Storyboard: String {
-    case onboarding = "Onboarding"
-    case main = "Main"
-    case mainTabBarController
-}
 
-enum ProfileImage: Int, CaseIterable {
-  case profile1 = 1, profile2, profile3, profile4, profile5, profile6, profile7, profile8, profile9, profile10, profile11, profile12, profile13, profile14
-}
 
 
 
