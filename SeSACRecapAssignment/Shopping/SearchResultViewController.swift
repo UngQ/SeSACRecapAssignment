@@ -106,6 +106,7 @@ class SearchResultViewController: UIViewController {
 	}
 
 
+
 	func callRequest(text: String, sort: String) {
 		let url = "https://openapi.naver.com/v1/search/shop.json"
 
@@ -125,6 +126,7 @@ class SearchResultViewController: UIViewController {
 		AF.request(url, method: .get, parameters: parameters, headers: headers).responseDecodable(of: Shopping.self) { response in
 			switch response.result {
 			case .success(let success):
+
 
 				if success.items.count == 0 {
 					self.totalLabel.text = "검색 결과가 없습니다"
@@ -260,7 +262,37 @@ extension SearchResultViewController {
 		searchResultCollectionView.collectionViewLayout = layout
 
 
-		callRequest(text: SearchViewController.searchItem, sort: currenSelected.sort)
+		NaverShoppingAPIManager.shared.request(text: SearchViewController.searchItem, sort: currenSelected.sort, itemNumber: itemNumber) { success in
+
+			dump(success)
+			DispatchQueue.main.async {
+			if success.items.count == 0 {
+				self.totalLabel.text = "검색 결과가 없습니다"
+
+				self.searchResultCollectionView.reloadData()
+			} else {
+
+				if self.itemNumber == 1 {
+					self.itemList = success
+					self.lastPage = success.total / 30
+
+					self.totalLabel.text = "\(self.intNumberFormatter(number: success.total)) 개의 검색 결과"
+
+				} else {
+
+					self.itemList.items.append(contentsOf: success.items)
+				}
+
+				self.searchResultCollectionView.reloadData()
+
+				if self.itemNumber == 1 {
+					self.searchResultCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+				}
+				}
+			}
+		}
+
+//		callRequest(text: SearchViewController.searchItem, sort: currenSelected.sort)
 
 	}
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5701CF02B7296C300F126B0 /* NaverShoppingAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701CEF2B7296C300F126B0 /* NaverShoppingAPIManager.swift */; };
 		A59F84452B59049B00F1BA27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84442B59049B00F1BA27 /* AppDelegate.swift */; };
 		A59F84472B59049B00F1BA27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84462B59049B00F1BA27 /* SceneDelegate.swift */; };
 		A59F84492B59049B00F1BA27 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84482B59049B00F1BA27 /* OnboardingViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5701CEF2B7296C300F126B0 /* NaverShoppingAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingAPIManager.swift; sourceTree = "<group>"; };
 		A59F84412B59049B00F1BA27 /* SeSACRecapAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACRecapAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59F84442B59049B00F1BA27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A59F84462B59049B00F1BA27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				A5FB78BB2B5D8AE900B3D5D9 /* ProductWebViewController.swift */,
 				A5BDFD722B62B77700095511 /* ResultCollectionViewCell.swift */,
 				A5BDFD732B62B77700095511 /* ResultCollectionViewCell.xib */,
+				A5701CEF2B7296C300F126B0 /* NaverShoppingAPIManager.swift */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				A59F845A2B5912CC00F1BA27 /* ProfileSettingViewController.swift in Sources */,
 				A5BDFDDC2B67E9EE00095511 /* CodeProfileImageCollectionViewCell.swift in Sources */,
 				A5FB78B72B5D036D00B3D5D9 /* SearchResultCollectionViewCell.swift in Sources */,
+				A5701CF02B7296C300F126B0 /* NaverShoppingAPIManager.swift in Sources */,
 				A5FB78C82B5E44FD00B3D5D9 /* PersonalInformationTableViewCell.swift in Sources */,
 				A5FB78A52B5BFF7200B3D5D9 /* Protocol + Enum.swift in Sources */,
 				A5BDFD912B66BD3E00095511 /* CodeSearchViewController.swift in Sources */,
