@@ -7,6 +7,27 @@
 
 import UIKit
 
+enum ValidationError: Error {
+	case limitCharacter
+	case restrictSymbol
+	case restrictInt
+	case unknown
+
+	var caution: String {
+		switch self {
+		case .limitCharacter:
+			"2글자 이상 10글자 미만으로 설정해주세요"
+		case .restrictSymbol:
+			"닉네임에 @, #, $, % 는 포함할 수 없어요"
+		case .restrictInt:
+			"닉네임에 숫자는 포함할 수 없어요"
+		case .unknown:
+			"알 수 없는 오류"
+		}
+	}
+
+}
+
 class ProfileSettingViewController: UIViewController {
 
     @IBOutlet var profileImageButton: UIButton!
@@ -64,30 +85,53 @@ class ProfileSettingViewController: UIViewController {
         }
     }
 
-    func filteringNickname() -> String {
-        print(#function)
+	func filteringNickname2(text: String) throws -> String {
+		print(#function)
 
-        guard userInputTextField.text!.count >= 2 &&
-                userInputTextField.text!.count < 10 else {
-            pass = false
-            return "2글자 이상 10글자 미만으로 설정해주세요"
-        }
-        guard !userInputTextField.text!.contains("@") &&
-                !userInputTextField.text!.contains("#") &&
-                !userInputTextField.text!.contains("$") &&
-                !userInputTextField.text!.contains("%") == true else {
-            pass = false
-            return "닉네임에 @, #, $, % 는 포함할 수 없어요"
-        }
-        guard userInputTextField.text!.rangeOfCharacter(from: .decimalDigits) == nil else {
-            pass = false
-            return "닉네임에 숫자는 포함할 수 없어요"
-        }
+		guard userInputTextField.text!.count >= 2 &&
+				userInputTextField.text!.count < 10 else {
+			throw ValidationError.limitCharacter
+		}
+		guard !userInputTextField.text!.contains("@") &&
+				!userInputTextField.text!.contains("#") &&
+				!userInputTextField.text!.contains("$") &&
+				!userInputTextField.text!.contains("%") == true else {
 
-        pass = true
+			throw ValidationError.restrictSymbol
+		}
+		guard userInputTextField.text!.rangeOfCharacter(from: .decimalDigits) == nil else {
 
-        return "사용할 수 있는 닉네임이에요"
-    }
+			throw ValidationError.restrictInt
+		}
+
+
+		return "사용할 수 있는 닉네임이에요"
+	}
+
+//    func filteringNickname() -> String {
+//        print(#function)
+//
+//        guard userInputTextField.text!.count >= 2 &&
+//                userInputTextField.text!.count < 10 else {
+//            pass = false
+//            return "2글자 이상 10글자 미만으로 설정해주세요"
+//        }
+//        guard !userInputTextField.text!.contains("@") &&
+//                !userInputTextField.text!.contains("#") &&
+//                !userInputTextField.text!.contains("$") &&
+//                !userInputTextField.text!.contains("%") == true else {
+//            pass = false
+//            return "닉네임에 @, #, $, % 는 포함할 수 없어요"
+//        }
+//        guard userInputTextField.text!.rangeOfCharacter(from: .decimalDigits) == nil else {
+//            pass = false
+//            return "닉네임에 숫자는 포함할 수 없어요"
+//        }
+//
+//        pass = true
+//
+//        return "사용할 수 있는 닉네임이에요"
+//    }
 }
 
 extension ProfileSettingViewController {
@@ -164,7 +208,20 @@ extension ProfileSettingViewController {
 extension ProfileSettingViewController: UITextFieldDelegate {
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        resultLabel.text = filteringNickname()
+
+		guard let text = resultLabel.text else { return }
+		do {
+			pass = true
+			resultLabel.text = try filteringNickname2(text: text)
+		} catch {
+			pass = false
+			switch error {
+			case ValidationError.limitCharacter: resultLabel.text = ValidationError.limitCharacter.caution
+			case ValidationError.restrictSymbol: resultLabel.text = ValidationError.restrictSymbol.caution
+			case ValidationError.restrictInt: resultLabel.text = ValidationError.restrictInt.caution
+			default: resultLabel.text = ValidationError.unknown.caution
+			}
+		}
     }
 
 }
