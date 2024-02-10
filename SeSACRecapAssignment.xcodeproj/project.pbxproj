@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A5701CF02B7296C300F126B0 /* NaverShoppingAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701CEF2B7296C300F126B0 /* NaverShoppingAPIManager.swift */; };
+		A5701DEA2B7786A400F126B0 /* CodeOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DE92B7786A400F126B0 /* CodeOnboardingViewController.swift */; };
+		A5701DED2B7787D000F126B0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DEC2B7787D000F126B0 /* BaseViewController.swift */; };
+		A5701DEF2B77882700F126B0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DEE2B77882700F126B0 /* BaseView.swift */; };
+		A5701DF12B77887F00F126B0 /* CodeOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DF02B77887F00F126B0 /* CodeOnboardingView.swift */; };
+		A5701DF32B77BC5E00F126B0 /* CodeProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DF22B77BC5E00F126B0 /* CodeProfileSettingViewController.swift */; };
+		A5701DF52B77C05800F126B0 /* CodeProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DF42B77C05800F126B0 /* CodeProfileSettingView.swift */; };
 		A59F84452B59049B00F1BA27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84442B59049B00F1BA27 /* AppDelegate.swift */; };
 		A59F84472B59049B00F1BA27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84462B59049B00F1BA27 /* SceneDelegate.swift */; };
 		A59F84492B59049B00F1BA27 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84482B59049B00F1BA27 /* OnboardingViewController.swift */; };
@@ -47,6 +53,12 @@
 
 /* Begin PBXFileReference section */
 		A5701CEF2B7296C300F126B0 /* NaverShoppingAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingAPIManager.swift; sourceTree = "<group>"; };
+		A5701DE92B7786A400F126B0 /* CodeOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeOnboardingViewController.swift; sourceTree = "<group>"; };
+		A5701DEC2B7787D000F126B0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A5701DEE2B77882700F126B0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		A5701DF02B77887F00F126B0 /* CodeOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeOnboardingView.swift; sourceTree = "<group>"; };
+		A5701DF22B77BC5E00F126B0 /* CodeProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeProfileSettingViewController.swift; sourceTree = "<group>"; };
+		A5701DF42B77C05800F126B0 /* CodeProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeProfileSettingView.swift; sourceTree = "<group>"; };
 		A59F84412B59049B00F1BA27 /* SeSACRecapAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACRecapAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59F84442B59049B00F1BA27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A59F84462B59049B00F1BA27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,10 +109,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5701DEB2B7787BF00F126B0 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				A5701DEC2B7787D000F126B0 /* BaseViewController.swift */,
+				A5701DEE2B77882700F126B0 /* BaseView.swift */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
 		A59F84382B59049B00F1BA27 = {
 			isa = PBXGroup;
 			children = (
 				A5BDFD692B62A6A100095511 /* .gitignore */,
+				A5701DEB2B7787BF00F126B0 /* BaseView */,
 				A5BDFDD42B67DEE500095511 /* CustomView */,
 				A5BDFDD12B67928800095511 /* CustomTabBar */,
 				A59F84432B59049B00F1BA27 /* SeSACRecapAssignment */,
@@ -141,7 +163,11 @@
 			children = (
 				A59F844A2B59049B00F1BA27 /* Onboarding.storyboard */,
 				A59F84482B59049B00F1BA27 /* OnboardingViewController.swift */,
+				A5701DE92B7786A400F126B0 /* CodeOnboardingViewController.swift */,
+				A5701DF02B77887F00F126B0 /* CodeOnboardingView.swift */,
 				A59F84592B5912CC00F1BA27 /* ProfileSettingViewController.swift */,
+				A5701DF22B77BC5E00F126B0 /* CodeProfileSettingViewController.swift */,
+				A5701DF42B77C05800F126B0 /* CodeProfileSettingView.swift */,
 				A5BDFDD92B67E5BB00095511 /* CodeProfileImageSettingViewController.swift */,
 				A5BDFDDB2B67E9EE00095511 /* CodeProfileImageCollectionViewCell.swift */,
 			);
@@ -298,6 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5BDFD9A2B66C47C00095511 /* CodeSearchTableViewCell.swift in Sources */,
+				A5701DEF2B77882700F126B0 /* BaseView.swift in Sources */,
+				A5701DF32B77BC5E00F126B0 /* CodeProfileSettingViewController.swift in Sources */,
 				A5BDFD742B62B77700095511 /* ResultCollectionViewCell.swift in Sources */,
 				A59F84492B59049B00F1BA27 /* OnboardingViewController.swift in Sources */,
 				A5BDFDD82B67E38D00095511 /* ProfileImageUIButton.swift in Sources */,
@@ -315,7 +343,11 @@
 				A5BDFDDC2B67E9EE00095511 /* CodeProfileImageCollectionViewCell.swift in Sources */,
 				A5FB78B72B5D036D00B3D5D9 /* SearchResultCollectionViewCell.swift in Sources */,
 				A5701CF02B7296C300F126B0 /* NaverShoppingAPIManager.swift in Sources */,
+				A5701DF12B77887F00F126B0 /* CodeOnboardingView.swift in Sources */,
+				A5701DEA2B7786A400F126B0 /* CodeOnboardingViewController.swift in Sources */,
 				A5FB78C82B5E44FD00B3D5D9 /* PersonalInformationTableViewCell.swift in Sources */,
+				A5701DF52B77C05800F126B0 /* CodeProfileSettingView.swift in Sources */,
+				A5701DED2B7787D000F126B0 /* BaseViewController.swift in Sources */,
 				A5FB78A52B5BFF7200B3D5D9 /* Protocol + Enum.swift in Sources */,
 				A5BDFD912B66BD3E00095511 /* CodeSearchViewController.swift in Sources */,
 				A5FB78B52B5D029800B3D5D9 /* SearchResultViewController.swift in Sources */,

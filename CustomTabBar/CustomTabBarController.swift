@@ -20,7 +20,7 @@ class CustomTabBarController: UITabBarController {
 
 
 
-		let firstVC = UINavigationController(rootViewController: SearchViewController())
+		let firstVC = UINavigationController(rootViewController: CodeSearchViewController())
 
 		firstVC.tabBarItem.title = "검색"
 		firstVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")

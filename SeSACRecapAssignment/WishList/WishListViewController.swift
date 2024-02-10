@@ -59,8 +59,8 @@ class WishListViewController: UIViewController {
 
 extension WishListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		print(SearchViewController.wishList.count)
-		return SearchViewController.wishList.count
+		print(CodeSearchViewController.wishList.count)
+		return CodeSearchViewController.wishList.count
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,23 +69,23 @@ extension WishListViewController: UICollectionViewDelegate, UICollectionViewData
 		let cell = wishListCollectionView.dequeueReusableCell(withReuseIdentifier: ResultCollectionViewCell.identifier, for: indexPath) as! ResultCollectionViewCell
 
 		cell.backgroundColor = .clear
-		let url = URL(string: SearchViewController.wishList[indexPath.row].image)
+		let url = URL(string: CodeSearchViewController.wishList[indexPath.row].image)
 
 		cell.itemImageView.kf.setImage(with: url)
 		cell.itemImageView.contentMode = .scaleAspectFill
 		cell.itemImageView.layer.masksToBounds = true
 		cell.itemImageView.layer.cornerRadius = 10
 
-		cell.mallNameLabel.text = SearchViewController.wishList[indexPath.row].mallName
+		cell.mallNameLabel.text = CodeSearchViewController.wishList[indexPath.row].mallName
 		cell.mallNameLabel.textColor = .systemGray2
 		cell.mallNameLabel.font = .systemFont(ofSize: 13)
 
-		cell.titleLabel.text = SearchResultViewController.htmlToString(title: SearchViewController.wishList[indexPath.row].title)
+		cell.titleLabel.text = SearchResultViewController.htmlToString(title: CodeSearchViewController.wishList[indexPath.row].title)
 		cell.titleLabel.textColor = .systemGray4
 		cell.titleLabel.font = .systemFont(ofSize: 13)
 		cell.titleLabel.numberOfLines = 2
 
-		cell.lpriceLabel.text = SearchResultViewController.stringNumberFormatter(number: SearchViewController.wishList[indexPath.row].lprice)
+		cell.lpriceLabel.text = SearchResultViewController.stringNumberFormatter(number: CodeSearchViewController.wishList[indexPath.row].lprice)
 		cell.lpriceLabel.textColor = .sesacText
 		cell.lpriceLabel.font = .boldSystemFont(ofSize: 14)
 
@@ -105,7 +105,7 @@ extension WishListViewController: UICollectionViewDelegate, UICollectionViewData
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		SearchResultViewController.product = SearchViewController.wishList[indexPath.row]
+		SearchResultViewController.product = CodeSearchViewController.wishList[indexPath.row]
 
 
 		let vc = storyboard?.instantiateViewController(withIdentifier: ProductWebViewController.identifier) as! ProductWebViewController
@@ -113,10 +113,10 @@ extension WishListViewController: UICollectionViewDelegate, UICollectionViewData
 	}
 
 	@objc func likeButtonClicked(sender: UIButton) {
-		SearchViewController.wishList.remove(at: sender.tag)
+		CodeSearchViewController.wishList.remove(at: sender.tag)
 
-		SearchViewController.saveStructUserDefaults()
-		SearchViewController.loadStructUserDefaults()
+		CodeSearchViewController.saveStructUserDefaults()
+		CodeSearchViewController.loadStructUserDefaults()
 
 		wishListCollectionView.reloadData()
 

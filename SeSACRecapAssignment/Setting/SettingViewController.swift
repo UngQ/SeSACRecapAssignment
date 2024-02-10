@@ -27,7 +27,7 @@ class SettingViewController: UIViewController {
     @IBOutlet var settingTableView: UITableView!
 
     let list = SettingOptions.allCases
-	var count = SearchViewController.wishList.count
+	var count = CodeSearchViewController.wishList.count
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +73,9 @@ class SettingViewController: UIViewController {
             let sceneDelegate = windowScene?.delegate as? SceneDelegate
 
             let sb = UIStoryboard(name: Storyboard.onboarding.rawValue, bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+
+			//임시
+            let vc = sb.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
             let nav = UINavigationController(rootViewController: vc)
             UserDefaults.standard.setValue(false, forKey: "UserState")
 
@@ -112,7 +114,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             cell.profileImageButton.setImage(UIImage(imageLiteralResourceName: "profile\(UserDefaults.standard.integer(forKey: "ImageNumber"))"), for: .normal)
             cell.nicknameLabel.text = UserDefaults.standard.string(forKey: "Nickname")
             cell.profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
-            cell.likeLabel.text = "\(SearchViewController.wishList.count)개의 상품"
+            cell.likeLabel.text = "\(CodeSearchViewController.wishList.count)개의 상품"
 
             return cell
         } else {

@@ -14,24 +14,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        //false라면 사용자가 처음 들어왔을 것이고, 첫 진입 이후에는 True로 바꿔주자.
-        let value = UserDefaults.standard.bool(forKey: "UserState")
-
-        if value == false {
-            //코드를 통해 앱 시작 화면 설정
-            guard let scene = (scene as? UIWindowScene) else { return }
-
-            window = UIWindow(windowScene: scene)
-
-            let sb = UIStoryboard(name: Storyboard.onboarding.rawValue, bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
-
-            let nav = UINavigationController(rootViewController: vc)
-
-            window?.rootViewController = nav
-
-            window?.makeKeyAndVisible()
-        } else {
+//        //false라면 사용자가 처음 들어왔을 것이고, 첫 진입 이후에는 True로 바꿔주자.
+//        let value = UserDefaults.standard.bool(forKey: "UserState")
+//
+//        if value == false {
+//            //코드를 통해 앱 시작 화면 설정
+//            guard let scene = (scene as? UIWindowScene) else { return }
+//
+//            window = UIWindow(windowScene: scene)
+//
+//            let sb = UIStoryboard(name: Storyboard.onboarding.rawValue, bundle: nil)
+//            let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+//
+//            let nav = UINavigationController(rootViewController: vc)
+//
+//            window?.rootViewController = nav
+//
+//            window?.makeKeyAndVisible()
+//        } else {
             guard let scene = (scene as? UIWindowScene) else { return }
 
             window = UIWindow(windowScene: scene)
@@ -43,11 +43,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
 //            window?.rootViewController = vc
 
+		let vc = CodeOnboardingViewController()
+		let nav = UINavigationController(rootViewController: vc)
 
-		
-			window?.rootViewController = CustomTabBarController()
-            window?.makeKeyAndVisible()
-        }
+		window?.rootViewController = nav
+		window?.makeKeyAndVisible()
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -71,7 +71,7 @@ class SearchResultViewController: UIViewController {
 		designButton(button: fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
 		currenSelected = .first
-		callRequest(text: SearchViewController.searchItem, sort: currenSelected.sort)
+		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 
 	@IBAction func secondButtonClicked(_ sender: UIButton) {
@@ -81,7 +81,7 @@ class SearchResultViewController: UIViewController {
 		designButton(button: fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
 		currenSelected = .second
-		callRequest(text: SearchViewController.searchItem, sort: currenSelected.sort)
+		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 
 	@IBAction func thirdButtonClicked(_ sender: UIButton) {
@@ -91,7 +91,7 @@ class SearchResultViewController: UIViewController {
 		designButton(button: fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
 		currenSelected = .third
-		callRequest(text: SearchViewController.searchItem, sort: currenSelected.sort)
+		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 
 
@@ -102,7 +102,7 @@ class SearchResultViewController: UIViewController {
 		designButton(button: fourthButton, title: ButtonTitle.fourth.rawValue, active: true)
 		itemNumber = 1
 		currenSelected = .fourth
-		callRequest(text: SearchViewController.searchItem, sort: currenSelected.sort)
+		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 
 
@@ -196,7 +196,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
 		cell.likeButton.layer.masksToBounds = true
 		cell.likeButton.layer.cornerRadius = 16
 
-		if SearchViewController.wishList.contains(where: { $0.productId == itemList.items[indexPath.row].productId }) {
+		if CodeSearchViewController.wishList.contains(where: { $0.productId == itemList.items[indexPath.row].productId }) {
 			// 'like' 상태일 때
 			cell.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
 		} else {
@@ -220,14 +220,14 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
 	
 
 	@objc func likeButtonClicked(sender: UIButton) {
-		if let index = SearchViewController.wishList.firstIndex(where: { $0.productId == itemList.items[sender.tag].productId }) {
-			SearchViewController.wishList.remove(at: index)
+		if let index = CodeSearchViewController.wishList.firstIndex(where: { $0.productId == itemList.items[sender.tag].productId }) {
+			CodeSearchViewController.wishList.remove(at: index)
 		} else {
-			SearchViewController.wishList.append(itemList.items[sender.tag])
+			CodeSearchViewController.wishList.append(itemList.items[sender.tag])
 		}
-		SearchViewController.saveStructUserDefaults()
-		SearchViewController.loadStructUserDefaults()
-		print(SearchViewController.wishList)
+		CodeSearchViewController.saveStructUserDefaults()
+		CodeSearchViewController.loadStructUserDefaults()
+		print(CodeSearchViewController.wishList)
 
 		searchResultCollectionView.reloadItems(at: [IndexPath(row: sender.tag, section: 0)])
 	}
@@ -239,7 +239,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
 //내가 만든 기능
 extension SearchResultViewController {
 	func configureView() {
-		navigationItem.title = SearchViewController.searchItem
+		navigationItem.title = CodeSearchViewController.searchItem
 
 		searchResultCollectionView.dataSource = self
 		searchResultCollectionView.delegate = self
@@ -262,7 +262,7 @@ extension SearchResultViewController {
 		searchResultCollectionView.collectionViewLayout = layout
 
 
-		NaverShoppingAPIManager.shared.request(text: SearchViewController.searchItem, sort: currenSelected.sort, itemNumber: itemNumber) { success in
+		NaverShoppingAPIManager.shared.request(text: CodeSearchViewController.searchItem, sort: currenSelected.sort, itemNumber: itemNumber) { success in
 
 			dump(success)
 			DispatchQueue.main.async {
@@ -370,7 +370,7 @@ extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
 		for item in indexPaths {
 			if itemList.items.count - 6 == item.row {
 				itemNumber += 30
-				callRequest(text: SearchViewController.searchItem, sort: currenSelected.sort)
+				callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 			}
 		}
 	}

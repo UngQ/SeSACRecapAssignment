@@ -12,7 +12,7 @@ import Alamofire
 import Toast
 import SnapKit
 
-class SearchViewController: UIViewController {
+class CodeSearchViewController: UIViewController {
 
 	let searchBar = UISearchBar()
 
@@ -39,7 +39,7 @@ class SearchViewController: UIViewController {
 		view.addSubview(allDeleteButton)
 		view.addSubview(searchTableView)
 
-		SearchViewController.loadStructUserDefaults()
+		CodeSearchViewController.loadStructUserDefaults()
 
 		searchTableView.backgroundColor = .clear
 		searchTableView.separatorStyle = .singleLine
@@ -141,7 +141,7 @@ class SearchViewController: UIViewController {
 
 
 
-extension SearchViewController: UITabBarDelegate {
+extension CodeSearchViewController: UITabBarDelegate {
 
 
 
@@ -151,13 +151,13 @@ extension SearchViewController: UITabBarDelegate {
 
 //서치바 관련
 
-extension SearchViewController: UISearchBarDelegate {
+extension CodeSearchViewController: UISearchBarDelegate {
 
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		view.endEditing(true)
 
 		if searchBar.text != "" {
-			SearchViewController.searchItem = searchBar.searchTextField.text!
+			CodeSearchViewController.searchItem = searchBar.searchTextField.text!
 			searchHistory.insert(searchBar.searchTextField.text!, at: 0)
 			UserDefaults.standard.setValue(searchHistory, forKey: "SearchHistory")
 			searchBar.text = ""
@@ -192,7 +192,7 @@ extension SearchViewController: UISearchBarDelegate {
 
 //테이블뷰 관련
 
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+extension CodeSearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -245,13 +245,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 
-		SearchViewController.searchItem = searchHistory[indexPath.row]
+		CodeSearchViewController.searchItem = searchHistory[indexPath.row]
 
 		searchHistory.remove(at: indexPath.row)
 
-		searchHistory.insert(SearchViewController.searchItem, at: 0)
+		searchHistory.insert(CodeSearchViewController.searchItem, at: 0)
 
-		print(SearchViewController.searchItem)
+		print(CodeSearchViewController.searchItem)
 
 
 
@@ -300,7 +300,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 //내가 만든 기능
 
-extension SearchViewController {
+extension CodeSearchViewController {
 
 	@objc func xmarkButtonClicked(sender: UIButton) {
 
@@ -429,13 +429,13 @@ extension SearchViewController {
 
 
 
-extension SearchViewController {
+extension CodeSearchViewController {
 
 	static func saveStructUserDefaults() {
 
 		let encoder = JSONEncoder()
 
-		if let encoded = try? encoder.encode(SearchViewController.wishList) {
+		if let encoded = try? encoder.encode(CodeSearchViewController.wishList) {
 
 			UserDefaults.standard.setValue(encoded, forKey: "Wish")
 
@@ -453,7 +453,7 @@ extension SearchViewController {
 
 			if let savedWishList = try? decoder.decode([Item].self, from: savedData) {
 
-				SearchViewController.wishList = savedWishList
+				CodeSearchViewController.wishList = savedWishList
 
 				// return savedWishList
 

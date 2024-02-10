@@ -21,7 +21,7 @@ class ProductWebViewController: UIViewController {
 		navigationItem.title = SearchResultViewController.htmlToString(title: itemTitle)
 		
 
-		if SearchViewController.wishList.contains(where: { $0.productId == productId }) {
+		if CodeSearchViewController.wishList.contains(where: { $0.productId == productId }) {
 			// 'like' 상태일 때
 			let item = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(heartButtonClicked))
 			navigationItem.rightBarButtonItem = item
@@ -43,16 +43,16 @@ class ProductWebViewController: UIViewController {
 
 	@objc func heartButtonClicked() {
 
-		if let index = SearchViewController.wishList.firstIndex(where: { $0.productId == productId }) {
-			SearchViewController.wishList.remove(at: index)
+		if let index = CodeSearchViewController.wishList.firstIndex(where: { $0.productId == productId }) {
+			CodeSearchViewController.wishList.remove(at: index)
 			navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
 
 		} else {
-			SearchViewController.wishList.append(SearchResultViewController.product)
+			CodeSearchViewController.wishList.append(SearchResultViewController.product)
 			navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
 		}
-		SearchViewController.saveStructUserDefaults()
-		SearchViewController.loadStructUserDefaults()
+		CodeSearchViewController.saveStructUserDefaults()
+		CodeSearchViewController.loadStructUserDefaults()
 
 	}
 
