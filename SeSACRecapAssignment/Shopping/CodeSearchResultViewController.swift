@@ -6,7 +6,28 @@
 //
 
 import UIKit
+import Kingfisher
 import Alamofire
+
+enum ButtonTitle: String {
+	case first = " 정확도 "
+	case second = " 날짜순 "
+	case third = " 가격높은순 "
+	case fourth = " 가격낮은순 "
+
+	var sort: String {
+		switch self {
+		case .first:
+			return "sim"
+		case .second:
+			return "date"
+		case .third:
+			return "dsc"
+		case .fourth:
+			return "asc"
+		}
+	}
+}
 
 class CodeSearchResultViewController: BaseViewController {
 
@@ -174,7 +195,7 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.thirdButton, title: ButtonTitle.third.rawValue, active: false)
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
-		currenSelected = .first
+		currenSelected = .second
 		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 
@@ -184,7 +205,7 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.thirdButton, title: ButtonTitle.third.rawValue, active: true)
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
-		currenSelected = .first
+		currenSelected = .third
 		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 
@@ -194,7 +215,7 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.thirdButton, title: ButtonTitle.third.rawValue, active: false)
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: true)
 		itemNumber = 1
-		currenSelected = .first
+		currenSelected = .fourth
 		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 }
@@ -219,10 +240,10 @@ extension CodeSearchResultViewController: UICollectionViewDelegate, UICollection
 		cell.mallNameLabel.text = itemList.items[indexPath.row].mallName
 
 
-		cell.titleLabel.text =  SearchResultViewController.htmlToString(title: itemList.items[indexPath.row].title)
+		cell.titleLabel.text = CodeSearchResultViewController.htmlToString(title: itemList.items[indexPath.row].title)
 
 
-		cell.lpriceLabel.text = SearchResultViewController.stringNumberFormatter(number: itemList.items[indexPath.row].lprice)
+		cell.lpriceLabel.text = CodeSearchResultViewController.stringNumberFormatter(number: itemList.items[indexPath.row].lprice)
 
 		cell.likeButton.tag = indexPath.row
 		cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
@@ -243,7 +264,7 @@ extension CodeSearchResultViewController: UICollectionViewDelegate, UICollection
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		SearchResultViewController.product = itemList.items[indexPath.row]
+		CodeSearchResultViewController.product = itemList.items[indexPath.row]
 
 		navigationController?.pushViewController(CodeProductWebViewController(), animated: true)
 	}

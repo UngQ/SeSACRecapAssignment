@@ -13,8 +13,8 @@ class CodeProductWebViewController: BaseViewController {
 
 	let webView = WKWebView()
 
-	let productId = SearchResultViewController.product.productId
-	let itemTitle = SearchResultViewController.product.title
+	let productId = CodeSearchResultViewController.product.productId
+	let itemTitle = CodeSearchResultViewController.product.title
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class CodeProductWebViewController: BaseViewController {
 
 	override func configureView() {
 
-		navigationItem.title = SearchResultViewController.htmlToString(title: itemTitle)
+		navigationItem.title = CodeSearchResultViewController.htmlToString(title: itemTitle)
 		navigationController?.navigationBar.tintColor = .white
 
 
@@ -63,7 +63,7 @@ class CodeProductWebViewController: BaseViewController {
 			navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
 
 		} else {
-			CodeSearchViewController.wishList.append(SearchResultViewController.product)
+			CodeSearchViewController.wishList.append(CodeSearchResultViewController.product)
 			navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
 		}
 		CodeSearchViewController.saveStructUserDefaults()

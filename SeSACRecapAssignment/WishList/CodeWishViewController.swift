@@ -53,9 +53,9 @@ extension CodeWishViewController: UICollectionViewDelegate, UICollectionViewData
 
 		cell.mallNameLabel.text = CodeSearchViewController.wishList[indexPath.row].mallName
 
-		cell.titleLabel.text = SearchResultViewController.htmlToString(title: CodeSearchViewController.wishList[indexPath.row].title)
+		cell.titleLabel.text = CodeSearchResultViewController.htmlToString(title: CodeSearchViewController.wishList[indexPath.row].title)
 
-		cell.lpriceLabel.text = SearchResultViewController.stringNumberFormatter(number: CodeSearchViewController.wishList[indexPath.row].lprice)
+		cell.lpriceLabel.text = CodeSearchResultViewController.stringNumberFormatter(number: CodeSearchViewController.wishList[indexPath.row].lprice)
 
 		cell.likeButton.tag = indexPath.row
 		cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)

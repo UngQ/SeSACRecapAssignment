@@ -75,7 +75,7 @@ class SettingViewController: UIViewController {
             let sb = UIStoryboard(name: Storyboard.onboarding.rawValue, bundle: nil)
 
 			//임시
-            let vc = sb.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
+            let vc = sb.instantiateViewController(withIdentifier: CodeSearchResultViewController.identifier) as! CodeSearchResultViewController
             let nav = UINavigationController(rootViewController: vc)
             UserDefaults.standard.setValue(false, forKey: "UserState")
 
@@ -138,9 +138,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
-            let sb = UIStoryboard(name: Storyboard.onboarding.rawValue, bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: ProfileSettingViewController.identifier) as! ProfileSettingViewController
-                navigationController?.pushViewController(vc, animated: true)
+
+                navigationController?.pushViewController(CodeProfileSettingViewController(), animated: true)
         }
 
         if indexPath.section == 1 && indexPath.row == list.endIndex - 1 {
