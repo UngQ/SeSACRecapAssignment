@@ -167,6 +167,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLy-3L-FrV">
+                                <rect key="frame" x="0.0" y="59" width="393" height="72"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idV-s7-DIG">
+                                        <rect key="frame" x="12" y="12" width="369" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="I0s-To-NOE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTT-g7-Hgz">
+                                        <rect key="frame" x="12" y="36" width="46" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="H9p-Nt-aIh"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="ZYz-8E-T1U"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="firstButtonClicked:" destination="X2U-y6-qvj" eventType="touchUpInside" id="HyQ-jY-6oh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9F-Mt-wOw">
+                                        <rect key="frame" x="66" y="36" width="46" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="1vq-yd-mMz"/>
+                                            <constraint firstAttribute="height" constant="32" id="P1P-uy-AFR"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="secondButtonClicked:" destination="X2U-y6-qvj" eventType="touchUpInside" id="4ct-bj-2IT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yad-pv-rEy">
+                                        <rect key="frame" x="120" y="36" width="46" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="44O-kT-Xsh"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="qCK-mi-WZP"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="thirdButtonClicked:" destination="X2U-y6-qvj" eventType="touchUpInside" id="mMC-fY-8PN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHd-9U-rdl">
+                                        <rect key="frame" x="174" y="36" width="46" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="dan-nc-uDC"/>
+                                            <constraint firstAttribute="height" constant="32" id="tt0-KH-dc9"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="fourthButtonClicked:" destination="X2U-y6-qvj" eventType="touchUpInside" id="ZYa-S6-KUe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="idV-s7-DIG" firstAttribute="top" secondItem="NLy-3L-FrV" secondAttribute="top" constant="12" id="7ae-Lx-8Kd"/>
+                                    <constraint firstItem="yad-pv-rEy" firstAttribute="leading" secondItem="r9F-Mt-wOw" secondAttribute="trailing" constant="8" id="BvF-6a-RhA"/>
+                                    <constraint firstItem="idV-s7-DIG" firstAttribute="leading" secondItem="NLy-3L-FrV" secondAttribute="leading" constant="12" id="DhX-E4-Ez8"/>
+                                    <constraint firstItem="YTT-g7-Hgz" firstAttribute="top" secondItem="idV-s7-DIG" secondAttribute="bottom" constant="4" id="JUy-O5-5gV"/>
+                                    <constraint firstItem="r9F-Mt-wOw" firstAttribute="leading" secondItem="YTT-g7-Hgz" secondAttribute="trailing" constant="8" id="L7R-hQ-eXo"/>
+                                    <constraint firstAttribute="trailing" secondItem="idV-s7-DIG" secondAttribute="trailing" constant="12" id="Nm6-u6-ASL"/>
+                                    <constraint firstItem="bHd-9U-rdl" firstAttribute="top" secondItem="idV-s7-DIG" secondAttribute="bottom" constant="4" id="Oh8-rN-TdH"/>
+                                    <constraint firstItem="YTT-g7-Hgz" firstAttribute="leading" secondItem="NLy-3L-FrV" secondAttribute="leading" constant="12" id="PeA-UN-JFa"/>
+                                    <constraint firstItem="r9F-Mt-wOw" firstAttribute="top" secondItem="idV-s7-DIG" secondAttribute="bottom" constant="4" id="WwC-rh-OQu"/>
+                                    <constraint firstItem="bHd-9U-rdl" firstAttribute="leading" secondItem="yad-pv-rEy" secondAttribute="trailing" constant="8" id="e6h-e3-u4l"/>
+                                    <constraint firstAttribute="height" constant="72" id="hSo-bd-AQL"/>
+                                    <constraint firstItem="yad-pv-rEy" firstAttribute="top" secondItem="idV-s7-DIG" secondAttribute="bottom" constant="4" id="sAr-Kz-s45"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7SE-A2-c45">
                                 <rect key="frame" x="0.0" y="131" width="393" height="687"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PrF-3U-aic">
@@ -263,82 +339,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLy-3L-FrV">
-                                <rect key="frame" x="0.0" y="59" width="393" height="72"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idV-s7-DIG">
-                                        <rect key="frame" x="12" y="12" width="369" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="I0s-To-NOE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTT-g7-Hgz">
-                                        <rect key="frame" x="12" y="36" width="46" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="H9p-Nt-aIh"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="ZYz-8E-T1U"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="firstButtonClicked:" destination="X2U-y6-qvj" eventType="touchUpInside" id="HyQ-jY-6oh"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9F-Mt-wOw">
-                                        <rect key="frame" x="66" y="36" width="46" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="1vq-yd-mMz"/>
-                                            <constraint firstAttribute="height" constant="32" id="P1P-uy-AFR"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="secondButtonClicked:" destination="X2U-y6-qvj" eventType="touchUpInside" id="4ct-bj-2IT"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yad-pv-rEy">
-                                        <rect key="frame" x="120" y="36" width="46" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="44O-kT-Xsh"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="qCK-mi-WZP"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="thirdButtonClicked:" destination="X2U-y6-qvj" eventType="touchUpInside" id="mMC-fY-8PN"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHd-9U-rdl">
-                                        <rect key="frame" x="174" y="36" width="46" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="dan-nc-uDC"/>
-                                            <constraint firstAttribute="height" constant="32" id="tt0-KH-dc9"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="fourthButtonClicked:" destination="X2U-y6-qvj" eventType="touchUpInside" id="ZYa-S6-KUe"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="idV-s7-DIG" firstAttribute="top" secondItem="NLy-3L-FrV" secondAttribute="top" constant="12" id="7ae-Lx-8Kd"/>
-                                    <constraint firstItem="yad-pv-rEy" firstAttribute="leading" secondItem="r9F-Mt-wOw" secondAttribute="trailing" constant="8" id="BvF-6a-RhA"/>
-                                    <constraint firstItem="idV-s7-DIG" firstAttribute="leading" secondItem="NLy-3L-FrV" secondAttribute="leading" constant="12" id="DhX-E4-Ez8"/>
-                                    <constraint firstItem="YTT-g7-Hgz" firstAttribute="top" secondItem="idV-s7-DIG" secondAttribute="bottom" constant="4" id="JUy-O5-5gV"/>
-                                    <constraint firstItem="r9F-Mt-wOw" firstAttribute="leading" secondItem="YTT-g7-Hgz" secondAttribute="trailing" constant="8" id="L7R-hQ-eXo"/>
-                                    <constraint firstAttribute="trailing" secondItem="idV-s7-DIG" secondAttribute="trailing" constant="12" id="Nm6-u6-ASL"/>
-                                    <constraint firstItem="bHd-9U-rdl" firstAttribute="top" secondItem="idV-s7-DIG" secondAttribute="bottom" constant="4" id="Oh8-rN-TdH"/>
-                                    <constraint firstItem="YTT-g7-Hgz" firstAttribute="leading" secondItem="NLy-3L-FrV" secondAttribute="leading" constant="12" id="PeA-UN-JFa"/>
-                                    <constraint firstItem="r9F-Mt-wOw" firstAttribute="top" secondItem="idV-s7-DIG" secondAttribute="bottom" constant="4" id="WwC-rh-OQu"/>
-                                    <constraint firstItem="bHd-9U-rdl" firstAttribute="leading" secondItem="yad-pv-rEy" secondAttribute="trailing" constant="8" id="e6h-e3-u4l"/>
-                                    <constraint firstAttribute="height" constant="72" id="hSo-bd-AQL"/>
-                                    <constraint firstItem="yad-pv-rEy" firstAttribute="top" secondItem="idV-s7-DIG" secondAttribute="bottom" constant="4" id="sAr-Kz-s45"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J45-j5-9ZR"/>
                         <constraints>

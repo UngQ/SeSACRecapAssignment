@@ -25,9 +25,7 @@ class CustomTabBarController: UITabBarController {
 		firstVC.tabBarItem.title = "검색"
 		firstVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
 
-		let secondSB = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil)
-		let secondVC = secondSB.instantiateViewController(withIdentifier: WishListViewController.identifier) as! WishListViewController
-		let secondNav = UINavigationController(rootViewController: secondVC)
+		let secondNav = UINavigationController(rootViewController: CodeWishViewController())
 
 		secondNav.tabBarItem.title = "위시"
 		secondNav.tabBarItem.image = UIImage(systemName: "heart")

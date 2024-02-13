@@ -296,15 +296,6 @@ extension SearchResultViewController {
 
 	}
 
-	func configureButton(button: UIButton, title: String) {
-		button.setTitle(title, for: .normal)
-		button.layer.masksToBounds = true
-		button.layer.cornerRadius = 10
-		button.layer.borderColor = UIColor.white.cgColor
-		button.layer.borderWidth = 1
-	}
-
-
 	func designButton(button: UIButton, title: String, active: Bool) {
 
 		if active == true {

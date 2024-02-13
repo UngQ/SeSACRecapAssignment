@@ -7,26 +7,7 @@
 
 import UIKit
 
-enum ValidationError: Error {
-	case limitCharacter
-	case restrictSymbol
-	case restrictInt
-	case unknown
 
-	var caution: String {
-		switch self {
-		case .limitCharacter:
-			"2글자 이상 10글자 미만으로 설정해주세요"
-		case .restrictSymbol:
-			"닉네임에 @, #, $, % 는 포함할 수 없어요"
-		case .restrictInt:
-			"닉네임에 숫자는 포함할 수 없어요"
-		case .unknown:
-			"알 수 없는 오류"
-		}
-	}
-
-}
 
 class ProfileSettingViewController: UIViewController {
 

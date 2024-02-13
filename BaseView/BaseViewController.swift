@@ -12,6 +12,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		
 		configureHierarchy()
 		configureLayout()
 		configureView()
@@ -27,6 +28,7 @@ class BaseViewController: UIViewController {
 	}
 
 	func configureView() {
+
 
 	}
 

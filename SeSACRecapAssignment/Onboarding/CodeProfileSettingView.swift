@@ -71,9 +71,17 @@ class CodeProfileSettingView: BaseView {
 		nicknameView.backgroundColor = .blue
 		lineView.backgroundColor = .white
 
-		inputTextField.backgroundColor = .brown
-		alertLabel.backgroundColor = .brown
+		inputTextField.text = UserDefaults.standard.string(forKey: "Nickname") ?? ""
+		inputTextField.font = .systemFont(ofSize: 16)
+		inputTextField.textColor = .sesacText
+		inputTextField.backgroundColor = .clear
+		//몰랐던 것1. placeholder 텍스트 컬러 변경
+		inputTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력해주세요 :)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.cgColor])
 
+		alertLabel.text = ""
+		alertLabel.font = .systemFont(ofSize: 14)
+		alertLabel.backgroundColor = .clear
+		alertLabel.textColor = .sesacPoint
 		okButton.backgroundColor = .gray
 	}
 

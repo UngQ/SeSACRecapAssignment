@@ -14,6 +14,13 @@
 		A5701DF12B77887F00F126B0 /* CodeOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DF02B77887F00F126B0 /* CodeOnboardingView.swift */; };
 		A5701DF32B77BC5E00F126B0 /* CodeProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DF22B77BC5E00F126B0 /* CodeProfileSettingViewController.swift */; };
 		A5701DF52B77C05800F126B0 /* CodeProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DF42B77C05800F126B0 /* CodeProfileSettingView.swift */; };
+		A5701DF72B77D78200F126B0 /* CodeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DF62B77D78200F126B0 /* CodeSearchView.swift */; };
+		A5701DFA2B78644D00F126B0 /* CodeSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DF92B78644D00F126B0 /* CodeSearchResultViewController.swift */; };
+		A5701DFC2B78646300F126B0 /* CodeSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DFB2B78646300F126B0 /* CodeSearchResultView.swift */; };
+		A5701DFE2B7AF28500F126B0 /* CodeSearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DFD2B7AF28400F126B0 /* CodeSearchResultCollectionViewCell.swift */; };
+		A5701E002B7B03A000F126B0 /* CodeProductWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DFF2B7B03A000F126B0 /* CodeProductWebViewController.swift */; };
+		A5701E022B7B0A4B00F126B0 /* CodeWishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701E012B7B0A4B00F126B0 /* CodeWishViewController.swift */; };
+		A5701E042B7B0A5D00F126B0 /* CodeWishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701E032B7B0A5D00F126B0 /* CodeWishView.swift */; };
 		A59F84452B59049B00F1BA27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84442B59049B00F1BA27 /* AppDelegate.swift */; };
 		A59F84472B59049B00F1BA27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84462B59049B00F1BA27 /* SceneDelegate.swift */; };
 		A59F84492B59049B00F1BA27 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F84482B59049B00F1BA27 /* OnboardingViewController.swift */; };
@@ -39,7 +46,7 @@
 		A5FB78A72B5C278700B3D5D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FB78A62B5C278700B3D5D9 /* Main.storyboard */; };
 		A5FB78AF2B5CFB7E00B3D5D9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A5FB78AE2B5CFB7E00B3D5D9 /* Alamofire */; };
 		A5FB78B12B5CFC7800B3D5D9 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78B02B5CFC7800B3D5D9 /* APIKey.swift */; };
-		A5FB78B32B5CFEED00B3D5D9 /* NaverShopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78B22B5CFEED00B3D5D9 /* NaverShopping.swift */; };
+		A5FB78B32B5CFEED00B3D5D9 /* NaverShoppingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78B22B5CFEED00B3D5D9 /* NaverShoppingModel.swift */; };
 		A5FB78B52B5D029800B3D5D9 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78B42B5D029800B3D5D9 /* SearchResultViewController.swift */; };
 		A5FB78B72B5D036D00B3D5D9 /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB78B62B5D036D00B3D5D9 /* SearchResultCollectionViewCell.swift */; };
 		A5FB78BA2B5D285500B3D5D9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A5FB78B92B5D285500B3D5D9 /* Kingfisher */; };
@@ -59,6 +66,13 @@
 		A5701DF02B77887F00F126B0 /* CodeOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeOnboardingView.swift; sourceTree = "<group>"; };
 		A5701DF22B77BC5E00F126B0 /* CodeProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeProfileSettingViewController.swift; sourceTree = "<group>"; };
 		A5701DF42B77C05800F126B0 /* CodeProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeProfileSettingView.swift; sourceTree = "<group>"; };
+		A5701DF62B77D78200F126B0 /* CodeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSearchView.swift; sourceTree = "<group>"; };
+		A5701DF92B78644D00F126B0 /* CodeSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSearchResultViewController.swift; sourceTree = "<group>"; };
+		A5701DFB2B78646300F126B0 /* CodeSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSearchResultView.swift; sourceTree = "<group>"; };
+		A5701DFD2B7AF28400F126B0 /* CodeSearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		A5701DFF2B7B03A000F126B0 /* CodeProductWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeProductWebViewController.swift; sourceTree = "<group>"; };
+		A5701E012B7B0A4B00F126B0 /* CodeWishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeWishViewController.swift; sourceTree = "<group>"; };
+		A5701E032B7B0A5D00F126B0 /* CodeWishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeWishView.swift; sourceTree = "<group>"; };
 		A59F84412B59049B00F1BA27 /* SeSACRecapAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACRecapAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59F84442B59049B00F1BA27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A59F84462B59049B00F1BA27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +96,7 @@
 		A5FB78A42B5BFF7200B3D5D9 /* Protocol + Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol + Enum.swift"; sourceTree = "<group>"; };
 		A5FB78A62B5C278700B3D5D9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A5FB78B02B5CFC7800B3D5D9 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
-		A5FB78B22B5CFEED00B3D5D9 /* NaverShopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShopping.swift; sourceTree = "<group>"; };
+		A5FB78B22B5CFEED00B3D5D9 /* NaverShoppingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingModel.swift; sourceTree = "<group>"; };
 		A5FB78B42B5D029800B3D5D9 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		A5FB78B62B5D036D00B3D5D9 /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		A5FB78BB2B5D8AE900B3D5D9 /* ProductWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +132,16 @@
 			path = BaseView;
 			sourceTree = "<group>";
 		};
+		A5701DF82B785BCC00F126B0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A5701CEF2B7296C300F126B0 /* NaverShoppingAPIManager.swift */,
+				A5FB78B22B5CFEED00B3D5D9 /* NaverShoppingModel.swift */,
+				A5FB78B02B5CFC7800B3D5D9 /* APIKey.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		A59F84382B59049B00F1BA27 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +149,7 @@
 				A5701DEB2B7787BF00F126B0 /* BaseView */,
 				A5BDFDD42B67DEE500095511 /* CustomView */,
 				A5BDFDD12B67928800095511 /* CustomTabBar */,
+				A5701DF82B785BCC00F126B0 /* Network */,
 				A59F84432B59049B00F1BA27 /* SeSACRecapAssignment */,
 				A59F84422B59049B00F1BA27 /* Products */,
 			);
@@ -152,7 +177,6 @@
 				A59F844D2B59049D00F1BA27 /* Assets.xcassets */,
 				A59F844F2B59049D00F1BA27 /* LaunchScreen.storyboard */,
 				A59F84522B59049E00F1BA27 /* Info.plist */,
-				A5FB78B02B5CFC7800B3D5D9 /* APIKey.swift */,
 				A5BDFDDD2B6805CC00095511 /* Enum.swift */,
 			);
 			path = SeSACRecapAssignment;
@@ -178,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				A5BDFD702B62AFB500095511 /* WishListViewController.swift */,
+				A5701E012B7B0A4B00F126B0 /* CodeWishViewController.swift */,
+				A5701E032B7B0A5D00F126B0 /* CodeWishView.swift */,
 			);
 			path = WishList;
 			sourceTree = "<group>";
@@ -209,15 +235,18 @@
 		A5FB78A82B5C278C00B3D5D9 /* Shopping */ = {
 			isa = PBXGroup;
 			children = (
-				A5FB78B22B5CFEED00B3D5D9 /* NaverShopping.swift */,
 				A5BDFD902B66BD3E00095511 /* CodeSearchViewController.swift */,
+				A5701DF62B77D78200F126B0 /* CodeSearchView.swift */,
 				A5BDFD992B66C47C00095511 /* CodeSearchTableViewCell.swift */,
+				A5701DF92B78644D00F126B0 /* CodeSearchResultViewController.swift */,
+				A5701DFB2B78646300F126B0 /* CodeSearchResultView.swift */,
+				A5701DFD2B7AF28400F126B0 /* CodeSearchResultCollectionViewCell.swift */,
+				A5701DFF2B7B03A000F126B0 /* CodeProductWebViewController.swift */,
 				A5FB78B42B5D029800B3D5D9 /* SearchResultViewController.swift */,
 				A5FB78B62B5D036D00B3D5D9 /* SearchResultCollectionViewCell.swift */,
 				A5FB78BB2B5D8AE900B3D5D9 /* ProductWebViewController.swift */,
 				A5BDFD722B62B77700095511 /* ResultCollectionViewCell.swift */,
 				A5BDFD732B62B77700095511 /* ResultCollectionViewCell.xib */,
-				A5701CEF2B7296C300F126B0 /* NaverShoppingAPIManager.swift */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -323,13 +352,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5701DFC2B78646300F126B0 /* CodeSearchResultView.swift in Sources */,
 				A5BDFD9A2B66C47C00095511 /* CodeSearchTableViewCell.swift in Sources */,
+				A5701DFE2B7AF28500F126B0 /* CodeSearchResultCollectionViewCell.swift in Sources */,
+				A5701E022B7B0A4B00F126B0 /* CodeWishViewController.swift in Sources */,
 				A5701DEF2B77882700F126B0 /* BaseView.swift in Sources */,
 				A5701DF32B77BC5E00F126B0 /* CodeProfileSettingViewController.swift in Sources */,
 				A5BDFD742B62B77700095511 /* ResultCollectionViewCell.swift in Sources */,
 				A59F84492B59049B00F1BA27 /* OnboardingViewController.swift in Sources */,
 				A5BDFDD82B67E38D00095511 /* ProfileImageUIButton.swift in Sources */,
 				A5BDFD712B62AFB500095511 /* WishListViewController.swift in Sources */,
+				A5701DF72B77D78200F126B0 /* CodeSearchView.swift in Sources */,
+				A5701DFA2B78644D00F126B0 /* CodeSearchResultViewController.swift in Sources */,
 				A5BDFDDE2B6805CC00095511 /* Enum.swift in Sources */,
 				A5BDFDDA2B67E5BB00095511 /* CodeProfileImageSettingViewController.swift in Sources */,
 				A5FB78B12B5CFC7800B3D5D9 /* APIKey.swift in Sources */,
@@ -348,10 +382,12 @@
 				A5FB78C82B5E44FD00B3D5D9 /* PersonalInformationTableViewCell.swift in Sources */,
 				A5701DF52B77C05800F126B0 /* CodeProfileSettingView.swift in Sources */,
 				A5701DED2B7787D000F126B0 /* BaseViewController.swift in Sources */,
+				A5701E042B7B0A5D00F126B0 /* CodeWishView.swift in Sources */,
 				A5FB78A52B5BFF7200B3D5D9 /* Protocol + Enum.swift in Sources */,
 				A5BDFD912B66BD3E00095511 /* CodeSearchViewController.swift in Sources */,
 				A5FB78B52B5D029800B3D5D9 /* SearchResultViewController.swift in Sources */,
-				A5FB78B32B5CFEED00B3D5D9 /* NaverShopping.swift in Sources */,
+				A5701E002B7B03A000F126B0 /* CodeProductWebViewController.swift in Sources */,
+				A5FB78B32B5CFEED00B3D5D9 /* NaverShoppingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
