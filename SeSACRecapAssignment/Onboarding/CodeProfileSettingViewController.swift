@@ -33,6 +33,7 @@ class CodeProfileSettingViewController: BaseViewController {
 	let image = UserDefaults.standard.integer(forKey: "ImageNumber")
 
 	let mainView = CodeProfileSettingView()
+	let viewModel = CodeProfileSettingViewModel()
 
 
 	override func loadView() {
@@ -46,12 +47,17 @@ class CodeProfileSettingViewController: BaseViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		viewModel.outputValidation.bind { value in
+			self.mainView.alertLabel.text = value
+		}
+
+		viewModel.outputValidStatus.bind { value in
+			self.pass = value
+		}
+
+
 	}
-
-	override func configureHierarchy() {
-
-	}
-
 
 	override func configureView() {
 
@@ -71,50 +77,27 @@ class CodeProfileSettingViewController: BaseViewController {
 	}
 
 	@objc func okButtonClicked() {
-		UserDefaults.standard.setValue(true, forKey: "UserState")
-
-		let vc = CustomTabBarController()
-		vc.modalTransitionStyle = .crossDissolve
-		vc.modalPresentationStyle = .fullScreen
-		present(vc, animated: true)
-//		if pass {
-//			UserDefaults.standard.setValue(mainView.inputTextField.text, forKey: "Nickname")
-//			if UserDefaults.standard.bool(forKey: "UserState") == true {
-//				navigationController?.popViewController(animated: true)
-//			} else {
-//				UserDefaults.standard.setValue(true, forKey: "UserState")
+//		UserDefaults.standard.setValue(true, forKey: "UserState")
 //
-//				let vc = CustomTabBarController()
-//				vc.modalTransitionStyle = .crossDissolve
-//				vc.modalPresentationStyle = .fullScreen
-//				present(vc, animated: true)
-//			}
-//		} else {
-//			print("닉네임 확인요망")
-//		}
-	}
+//		let vc = CustomTabBarController()
+//		vc.modalTransitionStyle = .crossDissolve
+//		vc.modalPresentationStyle = .fullScreen
+//		present(vc, animated: true)
+		if pass {
+			UserDefaults.standard.setValue(mainView.inputTextField.text, forKey: "Nickname")
+			if UserDefaults.standard.bool(forKey: "UserState") == true {
+				navigationController?.popViewController(animated: true)
+			} else {
+				UserDefaults.standard.setValue(true, forKey: "UserState")
 
-	func filteringNickname2(text: String) throws -> String {
-		print(#function)
-
-		guard mainView.inputTextField.text!.count >= 2 &&
-				mainView.inputTextField.text!.count < 10 else {
-			throw ValidationError.limitCharacter
+				let vc = CustomTabBarController()
+				vc.modalTransitionStyle = .crossDissolve
+				vc.modalPresentationStyle = .fullScreen
+				present(vc, animated: true)
+			}
+		} else {
+			print("닉네임 확인요망")
 		}
-		guard !mainView.inputTextField.text!.contains("@") &&
-				!mainView.inputTextField.text!.contains("#") &&
-				!mainView.inputTextField.text!.contains("$") &&
-				!mainView.inputTextField.text!.contains("%") == true else {
-
-			throw ValidationError.restrictSymbol
-		}
-		guard mainView.inputTextField.text!.rangeOfCharacter(from: .decimalDigits) == nil else {
-
-			throw ValidationError.restrictInt
-		}
-
-
-		return "사용할 수 있는 닉네임이에요"
 	}
 
 }
@@ -124,19 +107,23 @@ extension CodeProfileSettingViewController: UITextFieldDelegate {
 
 	func textFieldDidChangeSelection(_ textField: UITextField) {
 
-		guard let text = mainView.alertLabel.text else { return }
-		do {
-			pass = true
-			mainView.alertLabel.text = try filteringNickname2(text: text)
-		} catch {
-			pass = false
-			switch error {
-			case ValidationError.limitCharacter: mainView.alertLabel.text = ValidationError.limitCharacter.caution
-			case ValidationError.restrictSymbol: mainView.alertLabel.text = ValidationError.restrictSymbol.caution
-			case ValidationError.restrictInt: mainView.alertLabel.text = ValidationError.restrictInt.caution
-			default: mainView.alertLabel.text = ValidationError.unknown.caution
-			}
-		}
+		guard let text = textField.text else { return }
+
+		viewModel.inputNickname.value = text
+
+//		guard let text = mainView.alertLabel.text else { return }
+//		do {
+//			pass = true
+//			mainView.alertLabel.text = try filteringNickname2(text: text)
+//		} catch {
+//			pass = false
+//			switch error {
+//			case ValidationError.limitCharacter: mainView.alertLabel.text = ValidationError.limitCharacter.caution
+//			case ValidationError.restrictSymbol: mainView.alertLabel.text = ValidationError.restrictSymbol.caution
+//			case ValidationError.restrictInt: mainView.alertLabel.text = ValidationError.restrictInt.caution
+//			default: mainView.alertLabel.text = ValidationError.unknown.caution
+//			}
+//		}
 	}
 
 }

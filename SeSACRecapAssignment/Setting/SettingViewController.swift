@@ -111,7 +111,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: PersonalInformationTableViewCell.identifier, for: indexPath) as! PersonalInformationTableViewCell
-            cell.profileImageButton.setImage(UIImage(imageLiteralResourceName: "profile\(UserDefaults.standard.integer(forKey: "ImageNumber"))"), for: .normal)
+            cell.profileImageButton.setImage(UIImage(imageLiteralResourceName: "profile\(UserDefaults.standard.integer(forKey: "ImageNumber")+1)"), for: .normal)
             cell.nicknameLabel.text = UserDefaults.standard.string(forKey: "Nickname")
             cell.profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
             cell.likeLabel.text = "\(CodeSearchViewController.wishList.count)개의 상품"

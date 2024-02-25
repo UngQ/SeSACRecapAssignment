@@ -17,6 +17,10 @@ class CodeOnboardingViewController: BaseViewController {
 		view = mainView
 	}
 
+	override func viewWillAppear(_ animated: Bool) {
+		UserDefaults.standard.setValue(Int.random(in: 1...ProfileImage.allCases.count), forKey: "ImageNumber")
+	}
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
