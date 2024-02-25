@@ -72,10 +72,9 @@ class SettingViewController: UIViewController {
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let sceneDelegate = windowScene?.delegate as? SceneDelegate
 
-            let sb = UIStoryboard(name: Storyboard.onboarding.rawValue, bundle: nil)
-
+ 
 			//임시
-            let vc = sb.instantiateViewController(withIdentifier: CodeSearchResultViewController.identifier) as! CodeSearchResultViewController
+            let vc = CodeOnboardingViewController()
             let nav = UINavigationController(rootViewController: vc)
             UserDefaults.standard.setValue(false, forKey: "UserState")
 
