@@ -60,8 +60,7 @@ class CodeSearchTableViewCell: UITableViewCell {
 		}
 
 	}
-
-
+	
 
 	required init?(coder: NSCoder) {
 

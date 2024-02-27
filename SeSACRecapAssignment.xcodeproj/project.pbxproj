@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53D803F2B8D5B300095EB56 /* CodeSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D803E2B8D5B300095EB56 /* CodeSearchResultViewModel.swift */; };
 		A5701CF02B7296C300F126B0 /* NaverShoppingAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701CEF2B7296C300F126B0 /* NaverShoppingAPIManager.swift */; };
 		A5701DEA2B7786A400F126B0 /* CodeOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DE92B7786A400F126B0 /* CodeOnboardingViewController.swift */; };
 		A5701DED2B7787D000F126B0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5701DEC2B7787D000F126B0 /* BaseViewController.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A53D803E2B8D5B300095EB56 /* CodeSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSearchResultViewModel.swift; sourceTree = "<group>"; };
 		A5701CEF2B7296C300F126B0 /* NaverShoppingAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingAPIManager.swift; sourceTree = "<group>"; };
 		A5701DE92B7786A400F126B0 /* CodeOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeOnboardingViewController.swift; sourceTree = "<group>"; };
 		A5701DEC2B7787D000F126B0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				A5BDFD992B66C47C00095511 /* CodeSearchTableViewCell.swift */,
 				A5701DF92B78644D00F126B0 /* CodeSearchResultViewController.swift */,
 				A5701DFB2B78646300F126B0 /* CodeSearchResultView.swift */,
+				A53D803E2B8D5B300095EB56 /* CodeSearchResultViewModel.swift */,
 				A5701DFD2B7AF28400F126B0 /* CodeSearchResultCollectionViewCell.swift */,
 				A5701DFF2B7B03A000F126B0 /* CodeProductWebViewController.swift */,
 			);
@@ -351,6 +354,7 @@
 				A5FA10FE2B8BED0E00F91C9F /* CodeProfileSettingViewModel.swift in Sources */,
 				A5701DF12B77887F00F126B0 /* CodeOnboardingView.swift in Sources */,
 				A5701DEA2B7786A400F126B0 /* CodeOnboardingViewController.swift in Sources */,
+				A53D803F2B8D5B300095EB56 /* CodeSearchResultViewModel.swift in Sources */,
 				A5FB78C82B5E44FD00B3D5D9 /* PersonalInformationTableViewCell.swift in Sources */,
 				A5701DF52B77C05800F126B0 /* CodeProfileSettingView.swift in Sources */,
 				A5701DED2B7787D000F126B0 /* BaseViewController.swift in Sources */,

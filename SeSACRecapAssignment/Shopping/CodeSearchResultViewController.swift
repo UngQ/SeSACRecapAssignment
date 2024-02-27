@@ -35,12 +35,13 @@ class CodeSearchResultViewController: BaseViewController {
 	var itemList: Shopping = Shopping(lastBuildDate: "", total: 0, start: 0, display: 0, items: [])
 	var itemNumber = 1
 	var lastPage = 1
-	var currenSelected: ButtonTitle = .first
+	var currentSelected: ButtonTitle = .first
 
 	static var product = Item(title: "", link: "", image: "", lprice: "", hprice: "", mallName: "", productId: "", productType: "", brand: "", maker: "", category1: "", category2: "", category3: "", category4: "")
 
 
 	let mainView = CodeSearchResultView()
+	let viewModel = CodeSearchResultViewModel()
 
 
 	override func loadView() {
@@ -54,74 +55,13 @@ class CodeSearchResultViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
-
-	func callRequest(text: String, sort: String) {
-		let url = "https://openapi.naver.com/v1/search/shop.json"
-
-		let headers: HTTPHeaders = [
-			"X-Naver-Client-Id": APIKey.clientID,
-			"X-Naver-Client-Secret": APIKey.clientSecret
-		]
-
-
-		let parameters: Parameters = [
-			"query": text,
-			"start": itemNumber,
-			"display": "30",
-			"sort": sort
-		]
-
-		AF.request(url, method: .get, parameters: parameters, headers: headers).responseDecodable(of: Shopping.self) { response in
-			switch response.result {
-			case .success(let success):
-
-
-				if success.items.count == 0 {
-					self.mainView.totalLabel.text = "검색 결과가 없습니다"
-
-					self.mainView.searchResultCollectionView.reloadData()
-				} else {
-
-					if self.itemNumber == 1 {
-						self.itemList = success
-						self.lastPage = success.total / 30
-
-						self.mainView.totalLabel.text = "\(self.intNumberFormatter(number: success.total)) 개의 검색 결과"
-
-					} else {
-
-						self.itemList.items.append(contentsOf: success.items)
-					}
-
-					self.mainView.searchResultCollectionView.reloadData()
-
-					if self.itemNumber == 1 {
-						self.mainView.searchResultCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
-
-					}
-				}
-
-			case .failure(let failure):
-				print(failure)
-			}
+	func bindData() {
+		viewModel.inputItemText.bind { value in
+			<#code#>
 		}
 	}
-
 
 	override func configureView() {
 		navigationItem.title = CodeSearchViewController.searchItem
@@ -137,43 +77,10 @@ class CodeSearchResultViewController: BaseViewController {
 		mainView.thirdButton.addTarget(self, action: #selector(thirdButtonClicked), for: .touchUpInside)
 		mainView.fourthButton.addTarget(self, action: #selector(fourthButtonClicked), for: .touchUpInside)
 
-
 		mainView.searchResultCollectionView.dataSource = self
 		mainView.searchResultCollectionView.delegate = self
 		mainView.searchResultCollectionView.prefetchDataSource = self
 		mainView.searchResultCollectionView.register(CodeSearchResultCollectionViewCell.self, forCellWithReuseIdentifier: CodeSearchResultCollectionViewCell.identifier)
-
-
-
-//		NaverShoppingAPIManager.shared.request(text: CodeSearchViewController.searchItem, sort: currenSelected.sort, itemNumber: itemNumber) { success in
-//
-//			dump(success)
-//			DispatchQueue.main.async {
-//			if success.items.count == 0 {
-//				self.totalLabel.text = "검색 결과가 없습니다"
-//
-//				self.searchResultCollectionView.reloadData()
-//			} else {
-//
-//				if self.itemNumber == 1 {
-//					self.itemList = success
-//					self.lastPage = success.total / 30
-//
-//					self.totalLabel.text = "\(self.intNumberFormatter(number: success.total)) 개의 검색 결과"
-//
-//				} else {
-//
-//					self.itemList.items.append(contentsOf: success.items)
-//				}
-//
-//				self.searchResultCollectionView.reloadData()
-//
-//				if self.itemNumber == 1 {
-//					self.searchResultCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
-//				}
-//				}
-//			}
-//		}
 
 		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 
@@ -185,7 +92,7 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.thirdButton, title: ButtonTitle.third.rawValue, active: false)
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
-		currenSelected = .first
+		currentSelected = .first
 		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 
@@ -195,7 +102,7 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.thirdButton, title: ButtonTitle.third.rawValue, active: false)
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
-		currenSelected = .second
+		currentSelected = .second
 		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 
@@ -205,7 +112,7 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.thirdButton, title: ButtonTitle.third.rawValue, active: true)
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
-		currenSelected = .third
+		currentSelected = .third
 		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 
@@ -215,7 +122,7 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.thirdButton, title: ButtonTitle.third.rawValue, active: false)
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: true)
 		itemNumber = 1
-		currenSelected = .fourth
+		currentSelected = .fourth
 		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
 	}
 }
