@@ -57,11 +57,6 @@ class CodeSearchResultViewController: BaseViewController {
 
     }
 
-	func bindData() {
-		viewModel.inputItemText.bind { value in
-			<#code#>
-		}
-	}
 
 	override func configureView() {
 		navigationItem.title = CodeSearchViewController.searchItem
@@ -82,7 +77,11 @@ class CodeSearchResultViewController: BaseViewController {
 		mainView.searchResultCollectionView.prefetchDataSource = self
 		mainView.searchResultCollectionView.register(CodeSearchResultCollectionViewCell.self, forCellWithReuseIdentifier: CodeSearchResultCollectionViewCell.identifier)
 
-		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
+		Task {
+			let result = try await NaverShoppingAPIManager.shared.requestAsyncAwait(text: CodeSearchViewController.searchItem, sort: currentSelected.sort, itemNumber: itemNumber)
+			self.dataProcessing(success: result)
+		}
+
 
 	}
 
@@ -93,7 +92,11 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
 		currentSelected = .first
-		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
+
+		Task {
+			let result = try await NaverShoppingAPIManager.shared.requestAsyncAwait(text: CodeSearchViewController.searchItem, sort: currentSelected.sort, itemNumber: itemNumber)
+			self.dataProcessing(success: result)
+		}
 	}
 
 	@objc func secondButtonClicked() {
@@ -103,7 +106,11 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
 		currentSelected = .second
-		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
+
+		Task {
+			let result = try await NaverShoppingAPIManager.shared.requestAsyncAwait(text: CodeSearchViewController.searchItem, sort: currentSelected.sort, itemNumber: itemNumber)
+			self.dataProcessing(success: result)
+		}
 	}
 
 	@objc func thirdButtonClicked() {
@@ -113,7 +120,11 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: false)
 		itemNumber = 1
 		currentSelected = .third
-		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
+		
+		Task {
+			let result = try await NaverShoppingAPIManager.shared.requestAsyncAwait(text: CodeSearchViewController.searchItem, sort: currentSelected.sort, itemNumber: itemNumber)
+			self.dataProcessing(success: result)
+		}
 	}
 
 	@objc func fourthButtonClicked() {
@@ -123,8 +134,42 @@ class CodeSearchResultViewController: BaseViewController {
 		designButton(button: mainView.fourthButton, title: ButtonTitle.fourth.rawValue, active: true)
 		itemNumber = 1
 		currentSelected = .fourth
-		callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
+
+		Task {
+			let result = try await NaverShoppingAPIManager.shared.requestAsyncAwait(text: CodeSearchViewController.searchItem, sort: currentSelected.sort, itemNumber: itemNumber)
+			self.dataProcessing(success: result)
+		}
 	}
+
+	func dataProcessing(success: Shopping) {
+		print(Thread.isMainThread)
+			if success.items.count == 0 {
+				self.mainView.totalLabel.text = "검색 결과가 없습니다"
+
+				self.mainView.searchResultCollectionView.reloadData()
+			} else {
+
+				if self.itemNumber == 1 {
+					self.itemList = success
+					self.lastPage = success.total / 30
+
+					self.mainView.totalLabel.text = "\(self.intNumberFormatter(number: success.total)) 개의 검색 결과"
+
+				} else {
+
+					self.itemList.items.append(contentsOf: success.items)
+				}
+
+				self.mainView.searchResultCollectionView.reloadData()
+
+				if self.itemNumber == 1 {
+					self.mainView.searchResultCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+				}
+
+		}
+
+	}
+
 }
 
 
@@ -197,7 +242,10 @@ extension CodeSearchResultViewController: UICollectionViewDataSourcePrefetching 
 		for item in indexPaths {
 			if itemList.items.count - 6 == item.row {
 				itemNumber += 30
-				callRequest(text: CodeSearchViewController.searchItem, sort: currenSelected.sort)
+				Task {
+					let result = try await NaverShoppingAPIManager.shared.requestAsyncAwait(text: CodeSearchViewController.searchItem, sort: currentSelected.sort, itemNumber: itemNumber)
+					self.dataProcessing(success: result)
+				}
 			}
 		}
 	}
